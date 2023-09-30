@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://baep8bkn4mli2"]
 
-[ext_resource type="Texture2D" uid="uid://dlhfci7qcavqh" path="res://assets/lavahole.png" id="1_dhy5v"]
+[ext_resource type="Texture2D" uid="uid://dhp3dm8vvv8lr" path="res://assets/lavahole_black.png" id="1_bnln5"]
 
 [node name="LavaHole" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -10
-texture = ExtResource("1_dhy5v")
+texture = ExtResource("1_bnln5")

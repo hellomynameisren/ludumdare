@@ -6,6 +6,6 @@ func _ready():
 	super.replace_tiles()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'deelta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
