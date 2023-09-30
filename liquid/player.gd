@@ -7,7 +7,8 @@ var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
 var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
 func _ready():
-	$AnimatedSprite2D.play("default")
+	pass
+	#$AnimatedSprite2D.play("default")
 
 
 func get_input():
@@ -65,6 +66,9 @@ func _physics_process(delta):
 	for idx in get_slide_collision_count():
 		var body = get_slide_collision(idx)
 		if body.get_collider() is lava_block:
+			go_to_game_over_scene()
+		## in hazard group
+		if body.get_collider().is_in_group("hazard"):
 			go_to_game_over_scene()
 		if body.get_collider() is goal:
 			go_to_you_win_scene()

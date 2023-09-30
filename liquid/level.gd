@@ -6,6 +6,7 @@ var wall_scene = preload("res://liquid/wall_block.tscn")
 var lava_block_scene = preload("res://liquid/lava_block.tscn")
 var breakable_block_scene = preload("res://liquid/breakable_wall.tscn")
 var gravel_scene = preload("res://liquid/gravel.tscn")
+var weak_scene = preload("res://liquid/weak_block.tscn")
 
 
 
@@ -50,3 +51,10 @@ func replace_tiles():
 				gravel_instance.global_position = position
 				self.add_child(gravel_instance)
 				$TileMap.set_cell(0, tile_coord, -1)
+			if tile_id == 4:
+				var position = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
+				var weak_instance = weak_scene.instantiate()
+				weak_instance.global_position = position
+				self.add_child(weak_instance)
+				$TileMap.set_cell(0, tile_coord, -1)
+			
