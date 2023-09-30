@@ -17,12 +17,15 @@ func get_input():
 	velocity.x = input_vector.x * speed
 	if Input.is_action_pressed("ui_d"):
 		$Sprite2D.flip_h = false  # No flip
-		$AnimationPlayer.play("run")
+		if is_on_floor():
+			$AnimationPlayer.play("run")
 	elif Input.is_action_pressed("ui_a"):
 		$Sprite2D.flip_h = true  # Flip
-		$AnimationPlayer.play("run")
+		if is_on_floor():
+			$AnimationPlayer.play("run")
 	else:
-		$AnimationPlayer.play("rest", false)
+		if is_on_floor():
+			$AnimationPlayer.play("rest", false)
 	return input_vector
 
 
@@ -32,6 +35,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_w"):
 			velocity.y = jump_speed
+			$AnimationPlayer.play("jump")
 		else:
 			velocity.y = 0
 	else:
@@ -44,11 +48,13 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 			velocity.x = speed
 			last_wall_jump_dir = -1
+			$AnimationPlayer.play("jump")
 		# If the player is touching the right wall, didn't jump off a right wall last time, and the last key pressed wasn't right
 		elif velocity.x > 0 and last_wall_jump_dir != 1 and last_key_dir != 1:
 			velocity.y = jump_speed
 			velocity.x = -speed
 			last_wall_jump_dir = 1
+			$AnimationPlayer.play("jump")
 
 	# Reset last_wall_jump_dir when touching the ground or opposite wall
 	if is_on_floor() or (input_vector.x > 0 and last_wall_jump_dir == -1) or (input_vector.x < 0 and last_wall_jump_dir == 1):
