@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://8horxcuwc5ur"]
+
+[ext_resource type="Script" path="res://liquid/ceiling_hazard.gd" id="1_h0b88"]
+
+[sub_resource type="Gradient" id="Gradient_h7qii"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_frg6q"]
+gradient = SubResource("Gradient_h7qii")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc44y"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngy3"]
+size = Vector2(20, 200)
+
+[node name="Ceiling Hazard" type="RigidBody2D" groups=["hazard"]]
+script = ExtResource("1_h0b88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_frg6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rc44y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 92)
+shape = SubResource("RectangleShape2D_1ngy3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
