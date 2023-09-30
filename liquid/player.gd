@@ -26,3 +26,15 @@ func _physics_process(delta):
 
 	if is_on_wall():
 		velocity.x = 0
+	
+	# Check for lava collision
+	for idx in get_slide_collision_count():
+		var body = get_slide_collision(idx)
+		if body.get_collider() is lava_block:
+			go_to_game_over_scene()
+			
+
+func go_to_game_over_scene():
+	get_tree().change_scene_to_file("res://liquid/game_over.tscn")
+
+

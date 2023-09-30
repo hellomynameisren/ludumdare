@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bye420ejsqg31"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 387.0
+offset_top = 249.0
+offset_right = 801.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 76
+text = "Game Over"
