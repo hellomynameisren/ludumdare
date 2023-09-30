@@ -3,6 +3,8 @@ extends Node
 
 # Path to the water block scene
 var lava_block_scene = preload("res://liquid/lava_block.tscn")
+var lava_width = 8
+
 
 # Adjust these as per your game's needs
 var LAVA_TILE_ID = 1  # ID of your lava tile
@@ -35,7 +37,7 @@ func _add_lava():
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for offset in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)]:
-				var check_position = child.global_position + 8 * offset
+				var check_position = child.global_position + lava_width * offset
 				if _is_valid_lava_position(check_position):
 					potential_positions.append(check_position)
 					
@@ -62,26 +64,36 @@ func _place_lava_at(position: Vector2):
 	world.add_child(lava_instance)
 	
 func _is_valid_lava_position(position: Vector2) -> bool:
+	
+	var lava_shape = RectangleShape2D.new()
+	lava_shape.extents = Vector2(lava_width / 2 * 0.999, lava_width / 2 * 0.999)  # half extents
+
 	# Check if position is within the world's bounds
 	var top_left = Vector2.ZERO
 	var bottom_right = world.get_node("BottomRight").global_position
 	var world_bounds = Rect2(top_left, bottom_right - top_left)
-	if not world_bounds.has_point(position):
+	
+	# Check if the entire lava block would be inside the world bounds
+	var lava_rect = Rect2(position - lava_shape.extents, lava_shape.extents * 2)
+	if not world_bounds.encloses(lava_rect):
 		return false
+	
+	print("got fast first check: "+ str(position))
 		
 	var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
 	
-	var query_parameters = PhysicsPointQueryParameters2D.new()
-	query_parameters.position = position
-	query_parameters.exclude = [self]  # Assuming you don't want the spawner to be counted as a collision
+	# Set up the shape query
+	var query_parameters = PhysicsShapeQueryParameters2D.new()
+	query_parameters.shape = lava_shape
+	query_parameters.transform = Transform2D(0, position)
+	query_parameters.exclude = [self]
 
-	var collisions = space_state.intersect_point(query_parameters)
+	var collisions = space_state.intersect_shape(query_parameters)
 	
-	if collisions:
+	if collisions and collisions.size() > 0:
 		return false  # There's something at this position
-	
-	# Add more checks if needed
 
+	# No collisions, the position is valid
 	return true
 
 
