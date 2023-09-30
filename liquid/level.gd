@@ -40,9 +40,11 @@ func replace_tiles():
 				self.add_child(lava_instance)
 				$TileMap.set_cell(0, tile_coord, -1)
 			if tile_id == 2:
+				var frame = $TileMap.get_cell_tile_data(0, tile_coord).get_custom_data_by_layer_id(0)
 				var position = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
 				var breakable_instance = breakable_block_scene.instantiate()
 				breakable_instance.global_position = position
+				breakable_instance.get_node("Sprite2D").frame = frame
 				self.add_child(breakable_instance)
 				$TileMap.set_cell(0, tile_coord, -1)
 			if tile_id == 3:
