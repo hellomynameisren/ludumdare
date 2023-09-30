@@ -18,7 +18,6 @@ var spawn_min = Vector2(0, 0)
 var spawn_max = Vector2(1280, 720)
 
 func _ready():
-	print("lava spawner ready")
 	world = get_parent()
 	set_process(true)
 
