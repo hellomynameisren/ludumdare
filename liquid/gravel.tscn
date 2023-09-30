@@ -1,22 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5xdy4o7h0wh"]
+[gd_scene load_steps=4 format=3 uid="uid://x5xdy4o7h0wh"]
 
 [ext_resource type="Script" path="res://liquid/gravel.gd" id="1_l1f2e"]
+[ext_resource type="Texture2D" uid="uid://g2tlp6bdflv5" path="res://assets/gravel_circle.png" id="2_sto0y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm3ju"]
-size = Vector2(16, 16)
-
-[sub_resource type="Gradient" id="Gradient_jrlvt"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.498039, 0.466667, 0.47451, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6tj1"]
-gradient = SubResource("Gradient_jrlvt")
+[sub_resource type="CircleShape2D" id="CircleShape2D_87k6j"]
+radius = 9.0
 
 [node name="Gravel" type="RigidBody2D"]
 script = ExtResource("1_l1f2e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lm3ju")
+shape = SubResource("CircleShape2D_87k6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_t6tj1")
+texture = ExtResource("2_sto0y")
