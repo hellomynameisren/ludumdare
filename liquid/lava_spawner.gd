@@ -6,7 +6,7 @@ var lava_block_scene = preload("res://liquid/lava_block.tscn")
 
 # Adjust these as per your game's needs
 var LAVA_TILE_ID = 1  # ID of your lava tile
-var CHECK_INTERVAL = 0.2  # seconds
+var CHECK_INTERVAL = 1.0  # seconds
 
 var world: Node2D
 
@@ -22,9 +22,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	# Every second, check for a place to add lava
-	if Time.get_ticks_msec() % int(CHECK_INTERVAL * 1000) < delta * 1000:
-		_add_lava()
+	pass
+	
 
 # Assuming you have a Lava scene or Lava script, you'll load it for instantiation
 var LavaScene = preload("res://liquid/lava_block.tscn")
@@ -84,3 +83,7 @@ func _is_valid_lava_position(position: Vector2) -> bool:
 	# Add more checks if needed
 
 	return true
+
+
+func _on_timer_timeout():
+	_add_lava()
