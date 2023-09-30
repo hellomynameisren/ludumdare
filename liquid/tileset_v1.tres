@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dultrn4h7n6b7" path="res://assets/combined_platform.png" id="1_ejvi7"]
 [ext_resource type="Texture2D" uid="uid://dfk42c8cvs70j" path="res://assets/lava_tile.png" id="2_0jt14"]
-[ext_resource type="Texture2D" uid="uid://0gu4a2kbmvgr" path="res://assets/breakable_tile.png" id="3_w7fbp"]
+[ext_resource type="Texture2D" uid="uid://b1g2yc0psuhmt" path="res://assets/breakwall.png" id="3_uded1"]
 [ext_resource type="Texture2D" uid="uid://c6wvmjw2h2qc3" path="res://assets/gravel_tile.png" id="4_clcyh"]
 [ext_resource type="Texture2D" uid="uid://uqqcw1u14fxv" path="res://liquid/weak_tile.png" id="5_r6b5q"]
 
@@ -241,10 +241,16 @@ texture = ExtResource("2_0jt14")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_713nl"]
-texture = ExtResource("3_w7fbp")
+texture = ExtResource("3_uded1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2di3n"]
 texture = ExtResource("4_clcyh")
