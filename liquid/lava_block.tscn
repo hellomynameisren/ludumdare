@@ -1,6 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsnju0gh5v4m2"]
+[gd_scene load_steps=7 format=3 uid="uid://dsnju0gh5v4m2"]
 
 [ext_resource type="Script" path="res://liquid/lava_block.gd" id="1_iuhvf"]
+[ext_resource type="Shader" path="res://liquid/lava_block.gdshader" id="2_xkffb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsv3u"]
+shader = ExtResource("2_xkffb")
+shader_parameter/speed = 1.0
+shader_parameter/scale = 3.0
+shader_parameter/main_color = Vector4(1, 0.3, 0, 1)
+shader_parameter/glow_color = Vector4(1, 0.5, 0, 1)
+shader_parameter/screen_size = null
+shader_parameter/time = 0.0
 
 [sub_resource type="Gradient" id="Gradient_ad0f8"]
 offsets = PackedFloat32Array(0)
@@ -19,6 +29,7 @@ script = ExtResource("1_iuhvf")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nsv3u")
 texture = SubResource("GradientTexture2D_p7sy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
