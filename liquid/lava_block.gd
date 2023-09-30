@@ -57,7 +57,7 @@ func _is_valid_lava_position(position: Vector2) -> bool:
 		var query_parameters = PhysicsShapeQueryParameters2D.new()
 		query_parameters.shape = lava_shape
 		query_parameters.transform = Transform2D(0, position)
-		query_parameters.exclude = [self]
+		query_parameters.exclude = [self, world.get_node("Player")]
 
 		var collisions = space_state.intersect_shape(query_parameters)
 		
