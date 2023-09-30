@@ -3,12 +3,13 @@ extends StaticBody2D
 class_name lava_block
 
 var world: Node2D
-var lava_width = 8
+var lava_width = 0
 var exhausted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	world = get_parent()
+	lava_width = $CollisionShape2D.shape.extents.x * 2
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

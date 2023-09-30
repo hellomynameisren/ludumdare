@@ -8,11 +8,11 @@ colors = PackedColorArray(1, 0.12549, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p7sy4"]
 gradient = SubResource("Gradient_ad0f8")
-width = 8
-height = 8
+width = 16
+height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kff3"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [node name="LavaBlock" type="StaticBody2D"]
 script = ExtResource("1_iuhvf")
