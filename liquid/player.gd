@@ -7,7 +7,7 @@ var gravity = 1000
 
 func get_input():
 	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
 	return input_vector
 
@@ -15,7 +15,7 @@ func _physics_process(delta):
 	var input_vector = get_input()
   
 	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_w"):
 			velocity.y = jump_speed
 		else:
 			velocity.y = 0
