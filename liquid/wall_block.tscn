@@ -5,9 +5,11 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_frg6q"]
 gradient = SubResource("Gradient_h7qii")
+width = 16
+height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc44y"]
-size = Vector2(64, 64)
+size = Vector2(16, 16)
 
 [node name="WallBlock" type="StaticBody2D"]
 
