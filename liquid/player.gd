@@ -5,11 +5,24 @@ var jump_speed = -500
 var gravity = 1000
 
 
+func _ready():
+	$AnimatedSprite2D.play("default")
+
+
 func get_input():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
+	if Input.is_action_pressed("ui_d"):
+		$AnimatedSprite2D.flip_h = false  # No flip
+		$AnimatedSprite2D.play("run_right")
+	elif Input.is_action_pressed("ui_a"):
+		$AnimatedSprite2D.flip_h = true  # Flip
+		$AnimatedSprite2D.play("run_right")
+	else:
+		$AnimatedSprite2D.play("stop_right", false)
 	return input_vector
+
 
 func _physics_process(delta):
 	var input_vector = get_input()
@@ -43,3 +56,7 @@ func go_to_you_win_scene():
 	get_tree().change_scene_to_file("res://liquid/you_win.tscn")
 
 
+
+
+# func _on_animated_sprite_2d_animation_finished():
+# 	$AnimatedSprite2D.frame = $AnimatedSprite2D.frames.get_frame_count()

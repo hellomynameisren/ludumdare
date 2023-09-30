@@ -64,4 +64,4 @@ func _on_timer_timeout():
 	if potential_positions:
 		var random_position = potential_positions[randi() % potential_positions.size()]
 		position = random_position
-	timer.wait_time += randf_range(0, 0.01)
+	# timer.wait_time += randf_range(0, 0.01)
