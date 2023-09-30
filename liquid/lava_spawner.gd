@@ -33,20 +33,29 @@ func _add_lava():
 	var potential_positions = []
 
 	for child in world.get_children():
-		print("One child is " + str(child))
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
-			print("Child is " + str(child.global_position))
 			for offset in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)]:
 				var check_position = child.global_position + 50 * offset
 				if _is_valid_lava_position(check_position):
 					potential_positions.append(check_position)
 					
-	print("Potential positions: " + str(potential_positions))
 
 	if potential_positions:
-		var random_position = potential_positions[randi() % potential_positions.size()]
+		# Filter to only the positions with the highest y value
+		var highest_y = potential_positions[0].y
+		for pos in potential_positions:
+			highest_y = max(highest_y, pos.y)
+			
+		var highest_y_positions = []
+		for pos in potential_positions:
+			if pos.y == highest_y:
+				highest_y_positions.append(pos)
+				
+		print("Highest y positions: " + str(highest_y_positions))
+		var random_position = highest_y_positions[randi() % highest_y_positions.size()]
 		_place_lava_at(random_position)
+		
 
 func _place_lava_at(position: Vector2):
 	var lava_instance = LavaScene.instantiate()
