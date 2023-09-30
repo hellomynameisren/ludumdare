@@ -35,7 +35,7 @@ func _add_lava():
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for offset in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)]:
-				var check_position = child.global_position + 32 * offset
+				var check_position = child.global_position + 8 * offset
 				if _is_valid_lava_position(check_position):
 					potential_positions.append(check_position)
 					
