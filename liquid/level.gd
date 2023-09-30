@@ -57,4 +57,3 @@ func replace_tiles():
 				weak_instance.global_position = position
 				self.add_child(weak_instance)
 				$TileMap.set_cell(0, tile_coord, -1)
-			
