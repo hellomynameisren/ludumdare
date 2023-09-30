@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bokkqyrjki4o"]
+
+[ext_resource type="Script" path="res://liquid/goal.gd" id="1_1m7w5"]
+
+[sub_resource type="Gradient" id="Gradient_52owy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pd5s7"]
+gradient = SubResource("Gradient_52owy")
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoj7v"]
+size = Vector2(32, 32)
+
+[node name="Goal" type="StaticBody2D"]
+script = ExtResource("1_1m7w5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_pd5s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yoj7v")

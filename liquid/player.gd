@@ -32,9 +32,14 @@ func _physics_process(delta):
 		var body = get_slide_collision(idx)
 		if body.get_collider() is lava_block:
 			go_to_game_over_scene()
+		if body.get_collider() is goal:
+			go_to_you_win_scene()
 			
 
 func go_to_game_over_scene():
 	get_tree().change_scene_to_file("res://liquid/game_over.tscn")
+	
+func go_to_you_win_scene():
+	get_tree().change_scene_to_file("res://liquid/you_win.tscn")
 
 

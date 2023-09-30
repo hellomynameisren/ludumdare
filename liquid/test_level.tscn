@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2d8akbfs1y3e"]
+[gd_scene load_steps=6 format=3 uid="uid://d2d8akbfs1y3e"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/level.tscn" id="1_yxwh2"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_w7ouu"]
 [ext_resource type="PackedScene" uid="uid://d172v5bthdwl7" path="res://liquid/wall_block.tscn" id="3_hiv87"]
+[ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_7m57f"]
 [ext_resource type="PackedScene" uid="uid://dsnju0gh5v4m2" path="res://liquid/lava_block.tscn" id="4_tn2ys"]
 
 [node name="Level" instance=ExtResource("1_yxwh2")]
@@ -10,11 +11,16 @@
 [node name="Player" parent="." index="0" instance=ExtResource("2_w7ouu")]
 position = Vector2(400, 218)
 
-[node name="WallBlock" parent="." index="3" instance=ExtResource("3_hiv87")]
+[node name="LavaBlock" parent="." index="3" instance=ExtResource("4_tn2ys")]
+position = Vector2(655, 316)
+
+[node name="Goal" parent="." index="4" instance=ExtResource("4_7m57f")]
+position = Vector2(592, 206)
+
+[node name="Walls" type="Node2D" parent="." index="5"]
+
+[node name="WallBlock" parent="Walls" index="0" instance=ExtResource("3_hiv87")]
 position = Vector2(398, 376)
 
-[node name="WallBlock2" parent="." index="4" instance=ExtResource("3_hiv87")]
+[node name="WallBlock2" parent="Walls" index="1" instance=ExtResource("3_hiv87")]
 position = Vector2(457, 325)
-
-[node name="LavaBlock" parent="." index="5" instance=ExtResource("4_tn2ys")]
-position = Vector2(655, 316)
