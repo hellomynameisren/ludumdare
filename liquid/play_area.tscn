@@ -20,3 +20,6 @@ position = Vector2(367, 241)
 
 [node name="LavaBlock" parent="." instance=ExtResource("4_ir852")]
 position = Vector2(590, 234)
+
+[node name="BottomRight" type="Node2D" parent="."]
+position = Vector2(904, 503)

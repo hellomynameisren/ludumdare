@@ -6,7 +6,7 @@ var lava_block_scene = preload("res://liquid/lava_block.tscn")
 
 # Adjust these as per your game's needs
 var LAVA_TILE_ID = 1  # ID of your lava tile
-var CHECK_INTERVAL = 1.0  # seconds
+var CHECK_INTERVAL = 0.2  # seconds
 
 var world: Node2D
 
@@ -36,7 +36,7 @@ func _add_lava():
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for offset in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)]:
-				var check_position = child.global_position + 50 * offset
+				var check_position = child.global_position + 32 * offset
 				if _is_valid_lava_position(check_position):
 					potential_positions.append(check_position)
 					
@@ -63,6 +63,13 @@ func _place_lava_at(position: Vector2):
 	world.add_child(lava_instance)
 	
 func _is_valid_lava_position(position: Vector2) -> bool:
+	# Check if position is within the world's bounds
+	var top_left = Vector2.ZERO
+	var bottom_right = world.get_node("BottomRight").global_position
+	var world_bounds = Rect2(top_left, bottom_right - top_left)
+	if not world_bounds.has_point(position):
+		return false
+		
 	var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
 	
 	var query_parameters = PhysicsPointQueryParameters2D.new()
