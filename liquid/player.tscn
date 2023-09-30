@@ -77,7 +77,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"stop_right",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro6jj"]
@@ -99,7 +99,7 @@ script = ExtResource("1_t13u5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6mltk")
-animation = &"stop_right"
+animation = &"run_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ro6jj")

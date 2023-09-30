@@ -67,6 +67,9 @@ func _physics_process(delta):
 		var body = get_slide_collision(idx)
 		if body.get_collider() is lava_block:
 			go_to_game_over_scene()
+		## in hazard group
+		if body.get_collider().is_in_group("hazard"):
+			go_to_game_over_scene()
 		if body.get_collider() is goal:
 			go_to_you_win_scene()
 			
