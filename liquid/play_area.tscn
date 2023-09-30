@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://wrwp604x2ow3"]
+[gd_scene load_steps=5 format=3 uid="uid://wrwp604x2ow3"]
 
 [ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="1_pyp05"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_cu1ex"]
 [ext_resource type="PackedScene" uid="uid://d172v5bthdwl7" path="res://liquid/wall_block.tscn" id="3_r7lax"]
+[ext_resource type="PackedScene" uid="uid://dsnju0gh5v4m2" path="res://liquid/lava_block.tscn" id="4_ir852"]
 
 [node name="PlayArea" type="Node2D"]
 
@@ -16,3 +17,6 @@ position = Vector2(309, 303)
 
 [node name="WallBlock2" parent="." instance=ExtResource("3_r7lax")]
 position = Vector2(367, 241)
+
+[node name="LavaBlock" parent="." instance=ExtResource("4_ir852")]
+position = Vector2(590, 234)
