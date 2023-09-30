@@ -10,5 +10,7 @@ func _on_body_entered(body):
     if body.is_in_group("player"):
         # Apply an upward impulse
         apply_central_impulse(Vector2(0, -10))
+        # Wait for 0.1 seconds before enabling gravity
+        # yield(get_tree().create_timer(0.1), "timeout")
         # Set the gravity scale to 1 to make it fall
         gravity_scale = 1
