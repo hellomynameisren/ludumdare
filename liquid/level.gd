@@ -26,12 +26,12 @@ func replace_tiles():
 			var tile_coord = Vector2(x, y)
 			var tile_id = $TileMap.get_cell_source_id(0, tile_coord)
 			# print("tile " + str(tile_id) + " loc " + str(tile_coord))
-			if tile_id == 0:
-				var position = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
-				var wall_instance = wall_scene.instantiate()
-				wall_instance.global_position = position
-				self.add_child(wall_instance)
-				$TileMap.set_cell(0, tile_coord, -1)
+			#if tile_id == 0:
+			#	var position = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
+			#	var wall_instance = wall_scene.instantiate()
+			#	wall_instance.global_position = position
+			#	self.add_child(wall_instance)
+			#	$TileMap.set_cell(0, tile_coord, -1)
 			if tile_id == 1:
 				var position = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
 				var lava_instance = lava_block_scene.instantiate()

@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://liquid/test_level.gd" id="2_5tt3k"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_w7ouu"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_7m57f"]
-[ext_resource type="PackedScene" uid="uid://cy7or2ni7wpn1" path="res://liquid/weak_block.tscn" id="6_7df4v"]
+[ext_resource type="PackedScene" path="res://liquid/weak_block.tscn" id="6_7df4v"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="6_7w2jk"]
 [ext_resource type="Texture2D" uid="uid://dfk42c8cvs70j" path="res://assets/lava_tile.png" id="6_gg2f2"]
-[ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="6_obujs"]
+[ext_resource type="PackedScene" path="res://liquid/ceiling_hazard.tscn" id="6_obujs"]
 [ext_resource type="Texture2D" uid="uid://6pybjbei8h16" path="res://assets/black_16_16.png" id="6_picq3"]
 [ext_resource type="Texture2D" uid="uid://0gu4a2kbmvgr" path="res://assets/breakable_tile.png" id="8_7smv2"]
 [ext_resource type="Texture2D" uid="uid://c6wvmjw2h2qc3" path="res://assets/gravel_tile.png" id="9_e36gb"]
@@ -42,7 +42,7 @@ size = Vector2(40, 10)
 width = 30
 height = 10
 
-[node name="Level" instance=ExtResource("1_yxwh2")]
+[node name="Level2" instance=ExtResource("1_yxwh2")]
 script = ExtResource("2_5tt3k")
 
 [node name="Player" parent="." index="0" instance=ExtResource("2_w7ouu")]
