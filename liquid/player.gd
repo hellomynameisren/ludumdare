@@ -3,17 +3,26 @@ extends CharacterBody2D
 var speed = 250 
 var jump_speed = -500
 var gravity = 1000
-
+var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
+var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
 func get_input():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
+	
+	# Check for left input
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+	# Check for right input
+	elif velocity.x > 0:
+		$Sprite2D.flip_h = false
+	
 	return input_vector
 
 func _physics_process(delta):
 	var input_vector = get_input()
-  
+	
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_w"):
 			velocity.y = jump_speed
@@ -22,7 +31,27 @@ func _physics_process(delta):
 	else:
 		velocity.y += gravity * delta
 
+	# Wall Jump Logic
+	if is_on_wall() and Input.is_action_just_pressed("ui_w"):
+		# If the player is touching the left wall, didn't jump off a left wall last time, and the last key pressed wasn't left
+		if velocity.x < 0 and last_wall_jump_dir != -1 and last_key_dir != -1:
+			velocity.y = jump_speed
+			velocity.x = speed
+			last_wall_jump_dir = -1
+		# If the player is touching the right wall, didn't jump off a right wall last time, and the last key pressed wasn't right
+		elif velocity.x > 0 and last_wall_jump_dir != 1 and last_key_dir != 1:
+			velocity.y = jump_speed
+			velocity.x = -speed
+			last_wall_jump_dir = 1
+
+	# Reset last_wall_jump_dir when touching the ground or opposite wall
+	if is_on_floor() or (input_vector.x > 0 and last_wall_jump_dir == -1) or (input_vector.x < 0 and last_wall_jump_dir == 1):
+		last_wall_jump_dir = 0
+
 	move_and_slide()
+
+	# Existing collision checks...
+	
 
 	if is_on_wall():
 		velocity.x = 0
@@ -41,5 +70,4 @@ func go_to_game_over_scene():
 	
 func go_to_you_win_scene():
 	get_tree().change_scene_to_file("res://liquid/you_win.tscn")
-
 
