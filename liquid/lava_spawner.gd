@@ -1,7 +1,7 @@
 extends Node
 
 # Path to the water block scene
-var water_block_scene = preload("res://liquid/water_block.tscn")
+var lava_block_scene = preload("res://liquid/lava_block.tscn")
 
 # Number of blocks to spawn
 var number_to_spawn = 10
@@ -12,11 +12,11 @@ var spawn_max = Vector2(1280, 720)
 
 func _ready():
 	for i in range(number_to_spawn):
-		spawn_random_water_block()
+		spawn_random_lava_block()
 
-func spawn_random_water_block():
+func spawn_random_lava_block():
 	# Create an instance of the water block
-	var block = water_block_scene.instantiate()
+	var block = lava_block_scene.instantiate()
 	
 	# Set its position to a random location
 	block.position = Vector2(
