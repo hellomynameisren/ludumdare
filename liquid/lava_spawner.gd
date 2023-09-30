@@ -53,7 +53,6 @@ func _add_lava():
 			if pos.y == highest_y:
 				highest_y_positions.append(pos)
 				
-		print("Highest y positions: " + str(highest_y_positions))
 		var random_position = highest_y_positions[randi() % highest_y_positions.size()]
 		_place_lava_at(random_position)
 		
@@ -77,8 +76,6 @@ func _is_valid_lava_position(position: Vector2) -> bool:
 	var lava_rect = Rect2(position - lava_shape.extents, lava_shape.extents * 2)
 	if not world_bounds.encloses(lava_rect):
 		return false
-	
-	print("got fast first check: "+ str(position))
 		
 	var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
 	
