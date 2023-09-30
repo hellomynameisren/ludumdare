@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy7or2ni7wpn1"]
+
+[ext_resource type="Script" path="res://liquid/weak_block.gd" id="1_kacg3"]
+
+[sub_resource type="Gradient" id="Gradient_h7qii"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_frg6q"]
+gradient = SubResource("Gradient_h7qii")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc44y"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngy3"]
+
+[node name="WeakBlock" type="RigidBody2D"]
+script = ExtResource("1_kacg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_frg6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rc44y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1ngy3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
