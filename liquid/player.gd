@@ -1,23 +1,29 @@
-extends Area2D
+extends CharacterBody2D
+
+var speed = 200 
+var jump_speed = -400
+var gravity = 800
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func get_input():
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	if input_vector != Vector2.ZERO:
+		velocity.x = input_vector.x * speed
+	return input_vector
 
+func _physics_process(delta):
+	var input_vector = get_input()
+  
+	if is_on_floor():
+		if Input.is_action_just_pressed("ui_select") and is_on_floor():
+			velocity.y = jump_speed
+		else:
+			velocity.y = 0
+	else:
+		velocity.y += gravity * delta
 
+	move_and_slide()
 
-# Movement speed
-var speed = 200  # Pixels per second
-
-func _process(delta):
-	# Get the movement direction
-	var direction = 0
-	if Input.is_action_pressed("ui_right"):
-		direction += 1
-	if Input.is_action_pressed("ui_left"):
-		direction -= 1
-
-	# Calculate the new position
-	var velocity = Vector2(direction * speed, 0)
-	position += velocity * delta
+	if is_on_wall():
+		velocity.x = 0
