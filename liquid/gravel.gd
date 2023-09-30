@@ -1,28 +1,67 @@
-extends RigidBody2D
+extends StaticBody2D
 
-# Constants
-const HORIZONTAL_SPEED = 50  # Max horizontal movement speed
+var gravel_width = 0
+var world: Node2D
 
-# Properties
-var horizontal_move = 0  # Direction of horizontal movement: -1 for left, 1 for right
+var timer: Timer
 
 func _ready():
-	set_process(true)
+	world = get_parent()
+	timer = $Timer
+	gravel_width = $CollisionShape2D.shape.extents.x * 2
 
-func _process(delta):
-	# Apply stochastic horizontal movement
-	if randf() < 0.01:  # 1% chance per frame to change direction
-		horizontal_move = randf_range(-1, 1) 
+			
+func _is_valid_gravel_position(position: Vector2) -> bool:
+	
+	# Convert the vector to a string to use it as a key in the dictionary
+	# var key = str(position)
 
-	# Apply impulse if not colliding
-	var horizontal_velocity = Vector2(horizontal_move * HORIZONTAL_SPEED, 0)
-	if not is_colliding_horizontally():
-		apply_central_impulse(horizontal_velocity * mass * delta)
+	# Check if the result is cached
+	# if validity_cache.has(key):
+	# 	return validity_cache[key]
+		
+	var res
+	
+	var gravel_shape = RectangleShape2D.new()
+	gravel_shape.extents = Vector2(gravel_width / 2 * 0.999, gravel_width / 2 * 0.999)  # half extents
 
-# Check for horizontal collisions
-func is_colliding_horizontally() -> bool:
-	return false
-	# Assuming a collision shape of 20 units width, adjust as per your actual size
-	# Check both left and right side for collisions
-	# return get_world_2d().direct_space_state.intersect_ray(global_position + Vector2(-10, 0), global_position + Vector2(-15, 0)) \
-	#	or get_world_2d().direct_space_state.intersect_ray(global_position + Vector2(10, 0), global_position + Vector2(15, 0))
+	# Check if position is within the world's bounds
+	var top_left = Vector2.ZERO
+	var bottom_right = world.get_node("BottomRight").global_position
+	var world_bounds = Rect2(top_left, bottom_right - top_left)
+	
+	# Check if the entire lava block would be inside the world bounds
+	var gravel_rect = Rect2(position - gravel_shape.extents, gravel_shape.extents * 2)
+	if not world_bounds.encloses(gravel_rect):
+		res = false
+	else:
+		var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
+		
+		# Set up the shape query
+		var query_parameters = PhysicsShapeQueryParameters2D.new()
+		query_parameters.shape = gravel_shape
+		query_parameters.transform = Transform2D(0, position)
+		query_parameters.exclude = [self]
+
+		var collisions = space_state.intersect_shape(query_parameters)
+		
+		if collisions and collisions.size() > 0:
+			res = false  # There's something at this position
+		else:
+			res = true
+	# Cache the result
+	# validity_cache[key] = res
+	return res
+
+
+
+func _on_timer_timeout():
+	var potential_positions = []
+	for offset in [Vector2(0, 1), Vector2(1, 1), Vector2(-1, 1)]:
+		var check_position = self.global_position + gravel_width * offset
+		if _is_valid_gravel_position(check_position):
+			potential_positions.append(check_position)
+	if potential_positions:
+		var random_position = potential_positions[randi() % potential_positions.size()]
+		position = random_position
+	timer.wait_time += randf_range(0, 0.01)
