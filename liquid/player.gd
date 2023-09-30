@@ -16,13 +16,13 @@ func get_input():
 	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
 	if Input.is_action_pressed("ui_d"):
-		$AnimatedSprite2D.flip_h = false  # No flip
-		$AnimatedSprite2D.play("run_right")
+		$Sprite2D.flip_h = false  # No flip
+		$AnimationPlayer.play("run")
 	elif Input.is_action_pressed("ui_a"):
-		$AnimatedSprite2D.flip_h = true  # Flip
-		$AnimatedSprite2D.play("run_right")
+		$Sprite2D.flip_h = true  # Flip
+		$AnimationPlayer.play("run")
 	else:
-		$AnimatedSprite2D.play("stop_right", false)
+		$AnimationPlayer.play("rest", false)
 	return input_vector
 
 
