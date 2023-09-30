@@ -13,3 +13,6 @@ position = Vector2(304, 193)
 
 [node name="WallBlock" parent="." instance=ExtResource("3_r7lax")]
 position = Vector2(309, 303)
+
+[node name="WallBlock2" parent="." instance=ExtResource("3_r7lax")]
+position = Vector2(367, 241)
