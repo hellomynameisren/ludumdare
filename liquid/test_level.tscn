@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_w7ouu"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_7m57f"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="6_7w2jk"]
-[ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="6_obujs"]
+[ext_resource type="PackedScene" path="res://liquid/ceiling_hazard.tscn" id="6_obujs"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="7_1le1y"]
 [ext_resource type="Script" path="res://liquid/Boulder.gd" id="9_form1"]
 [ext_resource type="Script" path="res://liquid/Moving Platform.gd" id="10_1mhcj"]
