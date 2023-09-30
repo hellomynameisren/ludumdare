@@ -15,7 +15,7 @@ func _physics_process(delta):
 	var input_vector = get_input()
   
 	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = jump_speed
 		else:
 			velocity.y = 0
