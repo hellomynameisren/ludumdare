@@ -3,8 +3,8 @@ shader_type canvas_item;
 // Uniforms for customization
 uniform float speed : hint_range(0.1, 3.0) = 1.0;
 uniform float scale : hint_range(0.1, 10.0) = 3.0;
-uniform vec4 main_color = vec4(1.0, 0.3, 0.0, 1.0); // Main lava color
-uniform vec4 glow_color = vec4(1.0, 0.5, 0.0, 1.0); // Glow color
+uniform vec4 main_color = vec4(0.6039, 0.3059, 0.3059, 1.0); // Main lava color
+uniform vec4 glow_color = vec4(0.7804, 0.5569, 0.3961, 1.0); // Glow color
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform vec2 screen_size; // Screen size without hint
 
