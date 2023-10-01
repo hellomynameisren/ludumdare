@@ -4,11 +4,12 @@ class_name play_area
 
 
 # Preload or load your level scenes (Note: use "preload" if the path is known at compile-time)
-var Level1 = preload("res://liquid/levels/level_one.tscn")
-var Level2 = preload("res://liquid/levels/test_level2.tscn")
-var Level3 = preload("res://liquid/levels/test_level3.tscn")
+# var Level1 = preload("res://liquid/levels/level_one.tscn")
+# var Level2 = preload("res://liquid/levels/test_level2.tscn")
+# var Level3 = preload("res://liquid/levels/test_level3.tscn")
 
-var levels = [Level1, Level2, Level3]
+# var levels = [Level1, Level2, Level3]
+var levels = []
 
 var level_ix = 0
 
