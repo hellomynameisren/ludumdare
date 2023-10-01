@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="4_m4vly"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="5_lmioa"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="6_opus6"]
-[ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="7_bxbrc"]
+[ext_resource type="PackedScene" path="res://liquid/floor_switch.tscn" id="7_bxbrc"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="8_th25l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ex6w"]

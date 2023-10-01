@@ -9,7 +9,7 @@
 radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lspli"]
-size = Vector2(1000, 300)
+size = Vector2(1500, 300)
 
 [node name="Boulder" type="RigidBody2D" groups=["hazard"]]
 position = Vector2(1200, 0)
