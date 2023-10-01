@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by5sw7p8jlc18"]
+
+[ext_resource type="Script" path="res://liquid/play_area.gd" id="1_7lk1u"]
+
+[node name="PlayArea" type="Node2D"]
+script = ExtResource("1_7lk1u")

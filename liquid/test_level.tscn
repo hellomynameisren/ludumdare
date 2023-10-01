@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://liquid/ceiling_hazard.tscn" id="5_g6vtj"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="7_1le1y"]
 
-[node name="Level3" instance=ExtResource("1_yxwh2")]
+[node name="Level4" instance=ExtResource("1_yxwh2")]
 script = ExtResource("2_5tt3k")
 
 [node name="Player" parent="." index="0" instance=ExtResource("2_w7ouu")]
