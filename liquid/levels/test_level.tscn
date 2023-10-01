@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dreol3ftae1sa"]
+[gd_scene load_steps=14 format=3 uid="uid://dreol3ftae1sa"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_kb6yd"]
 [ext_resource type="Script" path="res://liquid/levels/test_level.gd" id="2_pvljw"]
@@ -8,6 +8,19 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="6_ujvk2"]
 [ext_resource type="PackedScene" uid="uid://xlouclsit2xv" path="res://liquid/boulder.tscn" id="7_xrsvs"]
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="8_pgplg"]
+[ext_resource type="Script" path="res://liquid/levels/Thwomp.gd" id="9_bm2vy"]
+
+[sub_resource type="Gradient" id="Gradient_44xy5"]
+offsets = PackedFloat32Array(0, 0.99422)
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_08nos"]
+gradient = SubResource("Gradient_44xy5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fm0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5jum"]
+size = Vector2(77, 11)
 
 [node name="Level3" instance=ExtResource("1_kb6yd")]
 script = ExtResource("2_pvljw")
@@ -53,3 +66,25 @@ position = Vector2(1300, -400)
 [node name="LavaBlock" parent="." index="13" instance=ExtResource("8_pgplg")]
 position = Vector2(-160, 625)
 scale = Vector2(20, 2)
+
+[node name="Thwomp" type="RigidBody2D" parent="." index="14"]
+position = Vector2(1200, -650)
+script = ExtResource("9_bm2vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Thwomp" index="0"]
+rotation = 1.5708
+scale = Vector2(0.4, 80)
+texture = SubResource("GradientTexture1D_08nos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp" index="1"]
+scale = Vector2(3.5, 5)
+shape = SubResource("RectangleShape2D_f7fm0")
+
+[node name="Area2D" type="Area2D" parent="Thwomp" index="2" groups=["hazard"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp/Area2D" index="0"]
+position = Vector2(-0.5, 49.5)
+shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="RayCast2D" type="RayCast2D" parent="Thwomp" index="3"]
+target_position = Vector2(0, 300)
