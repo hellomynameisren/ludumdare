@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="3_ljihy"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_dmipc"]
-[ext_resource type="PackedScene" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
-[ext_resource type="PackedScene" path="res://liquid/flying_spider_follow.tscn" id="5_ku6e8"]
+[ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
+[ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="5_ku6e8"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="7_psotc"]
 
 [sub_resource type="Curve2D" id="Curve2D_vwlrs"]
