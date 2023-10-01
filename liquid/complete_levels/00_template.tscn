@@ -20,8 +20,9 @@ z_index = -50
 position = Vector2(303, 433)
 texture = ExtResource("1_66xrr")
 
-[node name="BackgroundColor" type="Sprite2D" parent="Sprite2D"]
+[node name="BackgroundColor" type="Sprite2D" parent="."]
 z_index = -1000
+position = Vector2(303, 433)
 texture = SubResource("GradientTexture2D_i3r8k")
 
 [node name="TileMap" type="TileMap" parent="."]
