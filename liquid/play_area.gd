@@ -9,6 +9,7 @@ class_name play_area
 # var Level3 = preload("res://liquid/levels/test_level3.tscn")
 var levels = [
 	preload("res://liquid/levels/chamber_level2.tscn"),
+	preload("res://liquid/levels/gravel_level2.tscn"),
 	preload("res://liquid/levels/spider_level2.tscn"),
 	preload("res://liquid/levels/race_level2.tscn"),
 	#preload("res://liquid/levels/gravel_level.tscn"),
