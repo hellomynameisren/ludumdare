@@ -26,13 +26,14 @@ func _is_valid_gravel_position(position: Vector2) -> bool:
 	gravel_shape.extents = Vector2(gravel_width / 2 * 0.999, gravel_width / 2 * 0.999)  # half extents
 
 	# Check if position is within the world's bounds
-	var top_left = Vector2.ZERO
-	var bottom_right = world.get_node("BottomRight").global_position
-	var world_bounds = Rect2(top_left, bottom_right - top_left)
+	#var top_left = Vector2.ZERO
+	#var bottom_right = world.get_node("BottomRight").global_position
+	#var world_bounds = Rect2(top_left, bottom_right - top_left)
 	
 	# Check if the entire lava block would be inside the world bounds
-	var gravel_rect = Rect2(position - gravel_shape.extents, gravel_shape.extents * 2)
-	if not world_bounds.encloses(gravel_rect):
+	#var gravel_rect = Rect2(position - gravel_shape.extents, gravel_shape.extents * 2)
+	#if not world_bounds.encloses(gravel_rect):
+	if false:
 		res = false
 	else:
 		var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)

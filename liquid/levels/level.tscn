@@ -19,9 +19,6 @@ script = ExtResource("1_xdlnr")
 [node name="LavaSpawner" parent="." instance=ExtResource("2_evgg3")]
 position = Vector2(-1, -1)
 
-[node name="BottomRight" type="Node2D" parent="."]
-position = Vector2(1152, 648)
-
 [node name="Background" parent="." instance=ExtResource("3_qp5hu")]
 visible = false
 
