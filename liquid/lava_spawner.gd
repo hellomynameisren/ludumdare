@@ -57,6 +57,7 @@ func _place_lava_at(position: Vector2):
 	var lava_instance = LavaScene.instantiate()
 	lava_instance.global_position = position
 	world.add_child(lava_instance)
+	lava_instance.global_position = position
 
 # A dictionary to store the validity of positions
 var validity_cache = {}

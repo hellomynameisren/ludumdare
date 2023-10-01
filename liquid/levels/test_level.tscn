@@ -30,7 +30,7 @@ position = Vector2(100, 250)
 scale = Vector2(1.00674, 1.10311)
 
 [node name="Goal" parent="." index="3" instance=ExtResource("4_1vw8s")]
-position = Vector2(1500, -400)
+position = Vector2(1467, -302)
 
 [node name="Ceiling Hazard" parent="." index="4" instance=ExtResource("5_67nkw")]
 position = Vector2(-128, -140)

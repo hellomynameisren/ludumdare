@@ -1,22 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bokkqyrjki4o"]
+[gd_scene load_steps=6 format=3 uid="uid://bokkqyrjki4o"]
 
 [ext_resource type="Script" path="res://liquid/goal.gd" id="1_1m7w5"]
-
-[sub_resource type="Gradient" id="Gradient_52owy"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pd5s7"]
-gradient = SubResource("Gradient_52owy")
-width = 32
-height = 32
+[ext_resource type="Texture2D" uid="uid://df5qoq3vsxx1" path="res://assets/levelportal-walkway.png" id="2_ttnxe"]
+[ext_resource type="Texture2D" uid="uid://woruvcckyw5e" path="res://assets/levelportal-base.png" id="3_mvb34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoj7v"]
-size = Vector2(32, 32)
+size = Vector2(34.5, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sslru"]
+size = Vector2(130, 42)
 
 [node name="Goal" type="StaticBody2D"]
+z_index = -20
 script = ExtResource("1_1m7w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_pd5s7")
+position = Vector2(-14, -5)
+texture = ExtResource("2_ttnxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -48)
 shape = SubResource("RectangleShape2D_yoj7v")
+
+[node name="Walkway" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walkway"]
+position = Vector2(-7, 48)
+shape = SubResource("RectangleShape2D_sslru")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walkway"]
+texture = ExtResource("3_mvb34")
