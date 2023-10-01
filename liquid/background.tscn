@@ -1,14 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhfbw7nch3ctu"]
+[gd_scene load_steps=3 format=3 uid="uid://bhfbw7nch3ctu"]
 
 [ext_resource type="Texture2D" uid="uid://ou0wi70b3nxm" path="res://assets/background_test.png" id="1_tka8h"]
+[ext_resource type="Texture2D" uid="uid://1hbdsf0yb7ut" path="res://assets/tilebackground.png" id="2_6dkew"]
 
 [node name="Background" type="Node2D"]
 
 [node name="Main" type="Sprite2D" parent="."]
-z_index = -99
+z_index = -90
 position = Vector2(576, 342)
 scale = Vector2(1.91833, 1.71303)
 texture = ExtResource("1_tka8h")
+
+[node name="Top" type="Sprite2D" parent="."]
+z_index = -95
+position = Vector2(578, -139)
+scale = Vector2(1.91833, 1.71303)
+texture = ExtResource("2_6dkew")
+
+[node name="TopLeft" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(-576, -139)
+scale = Vector2(1.91833, 1.71303)
+texture = ExtResource("2_6dkew")
+
+[node name="TopRight" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1728, -140)
+scale = Vector2(1.91833, 1.71303)
+texture = ExtResource("2_6dkew")
 
 [node name="Right" type="Sprite2D" parent="."]
 z_index = -100
