@@ -16,6 +16,7 @@ script = ExtResource("2_pvljw")
 [node name="Player" parent="." index="0" instance=ExtResource("3_c8qjj")]
 position = Vector2(100, 250)
 scale = Vector2(1.00674, 1.10311)
+slide_on_ceiling = false
 
 [node name="Goal" parent="." index="3" instance=ExtResource("4_1vw8s")]
 position = Vector2(-1250, -1200)
@@ -64,7 +65,7 @@ angular_damp = 1000.0
 [node name="Thwomp2" parent="." index="15" instance=ExtResource("9_t8sim")]
 position = Vector2(960, -1100)
 
-[node name="Thwomp3" parent="." index="16" instance=ExtResource("9_t8sim")]
+[node name="Thwomp3" parent="." index="16" groups=["thwomp"] instance=ExtResource("9_t8sim")]
 position = Vector2(-950, -1600)
 
 [node name="Boulder2" parent="." index="17" instance=ExtResource("7_xrsvs")]

@@ -12,7 +12,7 @@ func _on_body_entered(body):
 		apply_central_impulse(Vector2(0, -10))
 		# Start the delay before enabling gravity
 		start_gravity_delay()
-	elif body.is_in_group("lava") or body.is_in_group("thwomp"):
+	elif body.is_in_group("lava") or body.is_in_group("thwomp") or body.is_in_group("hazard"):
 		# If the body is in the "lava" group, remove it
 		queue_free()
 

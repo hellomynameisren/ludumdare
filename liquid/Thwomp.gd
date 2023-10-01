@@ -17,8 +17,9 @@ func _process(delta):
     ## keep at no rotation
     #rotation = 0
   # Check if the raycast is colliding with the player
-    if $RayCast2D.is_colliding() and $RayCast2D.get_collider().is_in_group("player") and not is_falling:
-        start_fall()
+    if $RayCast2D.is_colliding():
+        if $RayCast2D.get_collider().is_in_group("player") and not is_falling:
+            start_fall()
 
 # Start the Thwomp's descent
 func start_fall():
