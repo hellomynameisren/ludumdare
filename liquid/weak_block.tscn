@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy7or2ni7wpn1"]
+[gd_scene load_steps=6 format=3 uid="uid://cy7or2ni7wpn1"]
 
 [ext_resource type="Script" path="res://liquid/weak_block.gd" id="1_kacg3"]
-[ext_resource type="Texture2D" uid="uid://bwb10pgeigf5l" path="res://assets/fallingplatform.png" id="2_vvwky"]
+
+[sub_resource type="Gradient" id="Gradient_h7qii"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_frg6q"]
+gradient = SubResource("Gradient_h7qii")
+width = 16
+height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc44y"]
 size = Vector2(16, 16)
@@ -13,7 +20,7 @@ size = Vector2(16, 20)
 script = ExtResource("1_kacg3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vvwky")
+texture = SubResource("GradientTexture2D_frg6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rc44y")
