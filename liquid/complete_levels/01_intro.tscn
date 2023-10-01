@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_3qn6h"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_ilb7m"]
 [ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="5_b38xv"]
-[ext_resource type="FontFile" uid="uid://bqqtblvedena6" path="res://assets/adrip1.ttf" id="7_b87vb"]
+[ext_resource type="FontFile" uid="uid://dx116tosd73ui" path="res://assets/adrip1.ttf" id="7_b87vb"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
