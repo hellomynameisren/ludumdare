@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 func _ready():
-    # Set the initial gravity scale to 0 to make it inert
-    gravity_scale = 0
+	# Set the initial gravity scale to 0 to make it inert
+	gravity_scale = 0
 
 func _on_body_entered(body):
     # print("Body entered")
@@ -17,14 +17,14 @@ func _on_body_entered(body):
         queue_free()
 
 func start_gravity_delay():
-    # Use a Timer to introduce the delay
-    var timer = Timer.new()
-    timer.wait_time = 0.1
-    timer.one_shot = true
-    timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-    add_child(timer)
-    timer.start()
+	# Use a Timer to introduce the delay
+	var timer = Timer.new()
+	timer.wait_time = 0.1
+	timer.one_shot = true
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	add_child(timer)
+	timer.start()
 
 func _on_timer_timeout():
-    # Set the gravity scale to 1 to make it fall
-    gravity_scale = 2
+	# Set the gravity scale to 1 to make it fall
+	gravity_scale = 2
