@@ -12,6 +12,9 @@ func _on_body_entered(body):
         apply_central_impulse(Vector2(0, -10))
         # Start the delay before enabling gravity
         start_gravity_delay()
+    elif body.is_in_group("lava"):
+        # If the body is in the "lava" group, remove it
+        queue_free()
 
 func start_gravity_delay():
     # Use a Timer to introduce the delay
