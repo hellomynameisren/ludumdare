@@ -8,7 +8,7 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="6_ujvk2"]
 [ext_resource type="PackedScene" uid="uid://xlouclsit2xv" path="res://liquid/boulder.tscn" id="7_xrsvs"]
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="8_pgplg"]
-[ext_resource type="PackedScene" uid="uid://v86jy6ehd2uk" path="res://thwomp.tscn" id="9_t8sim"]
+[ext_resource type="PackedScene" path="res://thwomp.tscn" id="9_t8sim"]
 
 [node name="Level3" instance=ExtResource("1_kb6yd")]
 script = ExtResource("2_pvljw")
