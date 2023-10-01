@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dreol3ftae1sa"]
+[gd_scene load_steps=11 format=3 uid="uid://dreol3ftae1sa"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_kb6yd"]
 [ext_resource type="Script" path="res://liquid/levels/test_level.gd" id="2_pvljw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://xlouclsit2xv" path="res://liquid/boulder.tscn" id="7_xrsvs"]
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="8_pgplg"]
 [ext_resource type="PackedScene" path="res://thwomp.tscn" id="9_t8sim"]
+[ext_resource type="Texture2D" uid="uid://d0usgr1qvxqau" path="res://assets/levels/level_v2.png" id="10_xdlfh"]
 
 [node name="Level3" instance=ExtResource("1_kb6yd")]
 script = ExtResource("2_pvljw")
@@ -73,3 +74,9 @@ position = Vector2(-1375, -1600)
 
 [node name="Boulder2" parent="." index="18" instance=ExtResource("7_xrsvs")]
 position = Vector2(-550, -1350)
+
+[node name="BackgroundImage" type="Sprite2D" parent="." index="20"]
+z_index = -50
+position = Vector2(272, -475)
+scale = Vector2(2.65261, 2.65261)
+texture = ExtResource("10_xdlfh")
