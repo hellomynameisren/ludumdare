@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://liquid/weak_block.gd" id="1_kacg3"]
 [ext_resource type="Texture2D" uid="uid://bwb10pgeigf5l" path="res://assets/fallingplatform.png" id="2_ej02f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc44y"]
-size = Vector2(16, 16)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_u4j8k"]
+points = PackedVector2Array(0, 8, -8, -8, 8, -8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngy3"]
 size = Vector2(16, 20)
@@ -16,7 +16,7 @@ script = ExtResource("1_kacg3")
 texture = ExtResource("2_ej02f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rc44y")
+shape = SubResource("ConvexPolygonShape2D_u4j8k")
 
 [node name="Area2D" type="Area2D" parent="."]
 
