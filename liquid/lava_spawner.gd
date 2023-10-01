@@ -35,7 +35,6 @@ func _add_lava():
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for pos in child.get_valid_lava_neighbors():
-				print("child " + str(child.global_position) + " pos " + str(pos))
 				potential_positions.append(pos)
 					
 
