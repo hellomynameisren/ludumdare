@@ -38,3 +38,16 @@ progress = 488.004
 [node name="FlyingSpider" parent="Path2D/FlyingSpiderFollow" index="0" instance=ExtResource("5_hoiow")]
 position = Vector2(-1.99194, 2.00824)
 rotation = 3.13749
+
+[node name="Path2D2" type="Path2D" parent="." index="7"]
+position = Vector2(669, 248)
+curve = SubResource("Curve2D_vwlrs")
+
+[node name="FlyingSpiderFollow" parent="Path2D2" index="0" instance=ExtResource("5_ku6e8")]
+position = Vector2(-121, -11)
+rotation = -3.13749
+progress = 488.004
+
+[node name="FlyingSpider" parent="Path2D2/FlyingSpiderFollow" index="0" instance=ExtResource("5_hoiow")]
+position = Vector2(-1.99194, 2.00824)
+rotation = 3.13749
