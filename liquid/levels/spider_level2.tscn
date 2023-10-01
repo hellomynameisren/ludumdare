@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bie3smqr16ltb"]
+
+[ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_fxu03"]
+[ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
+[ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_dmipc"]
+[ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
+[ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="5_ku6e8"]
+[ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="7_psotc"]
+[ext_resource type="Texture2D" uid="uid://beacbsystrwax" path="res://assets/levels/level_v3.png" id="8_hx6eb"]
+[ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="8_vffws"]
+
+[sub_resource type="Curve2D" id="Curve2D_vwlrs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -121, -11, 0, 0, 0, 0, -133.051, -9.68892, 0, 0, 0, 0, -365, -12, 0, 0, 0, 0, -121, -11)
+}
+point_count = 4
+
+[node name="Level" instance=ExtResource("1_fxu03")]
+position = Vector2(-12, 85)
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_irvqr")]
+position = Vector2(216, 265)
+
+[node name="Goal" parent="." index="4" instance=ExtResource("4_dmipc")]
+position = Vector2(676, 321)
+
+[node name="Path2D" type="Path2D" parent="." index="5"]
+position = Vector2(667, 329)
+curve = SubResource("Curve2D_vwlrs")
+
+[node name="FlyingSpiderFollow" parent="Path2D" index="0" instance=ExtResource("5_ku6e8")]
+position = Vector2(-121.042, -11.0002)
+rotation = -3.13749
+progress = 488.004
+
+[node name="FlyingSpider" parent="Path2D/FlyingSpiderFollow" index="0" instance=ExtResource("5_hoiow")]
+position = Vector2(-1.99194, 2.00824)
+rotation = 3.13749
+
+[node name="Path2D2" type="Path2D" parent="." index="6"]
+position = Vector2(669, 135)
+curve = SubResource("Curve2D_vwlrs")
+
+[node name="FlyingSpiderFollow" parent="Path2D2" index="0" instance=ExtResource("5_ku6e8")]
+position = Vector2(-121.042, -11.0002)
+rotation = -3.13749
+progress = 488.004
+
+[node name="FlyingSpider" parent="Path2D2/FlyingSpiderFollow" index="0" instance=ExtResource("5_hoiow")]
+position = Vector2(-1.99194, 2.00824)
+rotation = 3.13749
+
+[node name="LavaHole" parent="." index="7" instance=ExtResource("7_psotc")]
+position = Vector2(42, 75)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="8"]
+z_index = -50
+position = Vector2(241, 369)
+texture = ExtResource("8_hx6eb")
+
+[node name="TileMap" type="TileMap" parent="." index="9"]
+tile_set = ExtResource("8_vffws")
+format = 2
+layer_0/tile_data = PackedInt32Array(262146, 1, 0, 1310738, 65536, 1, 1376274, 65536, 1, 1376275, 65536, 1, 1376276, 65536, 1, 1376277, 65536, 1, 1376278, 65536, 1, 1376279, 65536, 1, 1376280, 65536, 1, 1376281, 65536, 1, 1376282, 65536, 1, 1376283, 65536, 1, 1376284, 65536, 1, 1376285, 65536, 1, 1376286, 65536, 1, 1376287, 65536, 1, 1376288, 65536, 1, 1376289, 65536, 1, 1376290, 65536, 1, 1376291, 65536, 1, 1376292, 65536, 1, 1310737, 65536, 1, 1310736, 65536, 1, 1310735, 65536, 1, 1310734, 65536, 1, 1310733, 65536, 1, 1310732, 65536, 1, 1310731, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 524288, 65536, 1, 589824, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 851968, 65536, 1, 917504, 65536, 1, 983040, 65536, 1, 1048576, 65536, 1, 1114112, 65536, 1, 1179648, 65536, 1, 1245184, 65536, 1, 1310720, 65536, 1, 1376256, 65536, 1, 1441792, 65536, 1, 1507328, 65536, 1, 1572864, 65536, 1, 1638400, 65536, 1, 1703936, 65536, 1, 1769472, 65536, 1, 1835008, 65536, 1, 1900544, 65536, 1, 1900580, 65536, 1, 1441828, 65536, 1, 1507364, 65536, 1, 1572900, 65536, 1, 1638436, 65536, 1, 1703972, 65536, 1, 1769508, 65536, 1, 1835044, 65536, 1, 2031616, 65536, 1, 2031617, 65536, 1, 2031618, 65536, 1, 2031619, 65536, 1, 2031620, 65536, 1, 2031621, 65536, 1, 2031622, 65536, 1, 2031623, 65536, 1, 2031624, 65536, 1, 2031625, 65536, 1, 2031626, 65536, 1, 2031627, 65536, 1, 2031628, 65536, 1, 2031629, 65536, 1, 2031630, 65536, 1, 2031631, 65536, 1, 2031632, 65536, 1, 2031633, 65536, 1, 2031634, 65536, 1, 2031635, 65536, 1, 2031636, 65536, 1, 2031637, 65536, 1, 2031638, 65536, 1, 2031639, 65536, 1, 2031640, 65536, 1, 2031641, 65536, 1, 2031642, 65536, 1, 2031643, 65536, 1, 2031644, 65536, 1, 2031645, 65536, 1, 2031646, 65536, 1, 2031647, 65536, 1, 2031648, 65536, 1, 2031649, 65536, 1, 2031650, 65536, 1, 2031651, 65536, 1, 2031652, 65536, 1, 1966116, 65536, 1, 1966080, 65536, 1)
