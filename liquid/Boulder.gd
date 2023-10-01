@@ -3,7 +3,7 @@ extends RigidBody2D
 var push = 0
 var pushes = 1
 var speed = 600
-var winertia = 240
+var winertia = 265
 
 func _ready():
     # Set the initial gravity scale to 0 to make it inert
