@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6cwiw55lkp44"]
+[gd_scene load_steps=10 format=3 uid="uid://b6cwiw55lkp44"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_taxl5"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_0emjo"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="5_mptrq"]
 [ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="6_2ra3p"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="7_hm7dp"]
+[ext_resource type="Texture2D" uid="uid://8p0em0a8bwsc" path="res://assets/levels/level_v4.png" id="8_x1k76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4i5m"]
 size = Vector2(95, 46)
@@ -35,3 +36,8 @@ position = Vector2(203, 359)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch/DestroyArea" index="0"]
 position = Vector2(226.5, 92)
 shape = SubResource("RectangleShape2D_a4i5m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="8"]
+z_index = -50
+position = Vector2(614, 290)
+texture = ExtResource("8_x1k76")

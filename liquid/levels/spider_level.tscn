@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwmkae54ohes0"]
+[gd_scene load_steps=10 format=3 uid="uid://cwmkae54ohes0"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_fxu03"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
 [ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="5_ku6e8"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="7_psotc"]
+[ext_resource type="Texture2D" uid="uid://beacbsystrwax" path="res://assets/levels/level_v3.png" id="8_hx6eb"]
 
 [sub_resource type="Curve2D" id="Curve2D_vwlrs"]
 _data = {
@@ -57,3 +58,8 @@ rotation = 3.13749
 
 [node name="LavaHole" parent="." index="8" instance=ExtResource("7_psotc")]
 position = Vector2(230, 377)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="10"]
+z_index = -50
+position = Vector2(241, 369)
+texture = ExtResource("8_hx6eb")
