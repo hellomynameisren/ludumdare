@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqbou3am81fge"]
+[gd_scene load_steps=6 format=3 uid="uid://cqbou3am81fge"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_fxu03"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="3_ljihy"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_dmipc"]
+[ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
 
 [node name="Level" instance=ExtResource("1_fxu03")]
 
@@ -17,3 +18,6 @@ layer_0/tile_data = PackedInt32Array(1638409, 65536, 1, 1638410, 65536, 1, 16384
 
 [node name="Goal" parent="." index="5" instance=ExtResource("4_dmipc")]
 position = Vector2(667, 413)
+
+[node name="FlyingSpider" parent="." index="6" instance=ExtResource("5_hoiow")]
+position = Vector2(458, 388)
