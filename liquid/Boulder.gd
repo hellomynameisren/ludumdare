@@ -8,6 +8,9 @@ var winertia = 265
 func _ready():
 	# Set the initial gravity scale to 0 to make it inert
 	gravity_scale = 1
+	for child in get_children():
+		if child is Area2D:
+			child.connect("body_entered", self._on_body_entered)
 
 func _on_body_entered(body):
 	#print("Boulder triggered")
