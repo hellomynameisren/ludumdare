@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://liquid/lava_block.gd" id="1_iuhvf"]
 [ext_resource type="Shader" path="res://liquid/lava_block.gdshader" id="2_xkffb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsv3u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_veog7"]
 shader = ExtResource("2_xkffb")
 shader_parameter/speed = 1.0
 shader_parameter/scale = 3.0
-shader_parameter/main_color = Vector4(1, 0.3, 0, 1)
-shader_parameter/glow_color = Vector4(1, 0.5, 0, 1)
+shader_parameter/main_color = Vector4(0.6039, 0.3059, 0.3059, 1)
+shader_parameter/glow_color = Vector4(0.7804, 0.5569, 0.3961, 1)
 shader_parameter/screen_size = null
 shader_parameter/time = 0.0
 
@@ -29,7 +29,7 @@ script = ExtResource("1_iuhvf")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_nsv3u")
+material = SubResource("ShaderMaterial_veog7")
 texture = SubResource("GradientTexture2D_p7sy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

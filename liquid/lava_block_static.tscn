@@ -1,9 +1,35 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccpb6r8nmhggt"]
 
-[ext_resource type="Shader" path="res://liquid/lava_block.gdshader" id="2_g24sj"]
+[sub_resource type="Shader" id="Shader_6hwvi"]
+code = "shader_type canvas_item;
+
+// Uniforms for customization
+uniform float speed : hint_range(0.1, 3.0) = 1.0;
+uniform float scale : hint_range(0.1, 10.0) = 3.0;
+uniform vec4 main_color = vec4(0.6039, 0.3059, 0.3059, 1.0); // Main lava color
+uniform vec4 glow_color = vec4(0.7804, 0.5569, 0.3961, 1.0); // Glow color
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform vec2 screen_size; // Screen size without hint
+
+// Time variable for animation
+uniform float time : hint_range(0, 100) = 0;
+
+void vertex() {
+    // Modify the UV coordinates with time for animation
+    UV += time * speed;
+}
+
+void fragment() {
+    // Calculate noise for the flowing effect
+    float noise = texture(SCREEN_TEXTURE, FRAGCOORD.xy / screen_size).r;
+    float flow = texture(SCREEN_TEXTURE, UV * scale + noise).r;
+
+    // Mix the main color and the glow color based on the noise value
+    COLOR = mix(main_color, glow_color, flow);
+}"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsv3u"]
-shader = ExtResource("2_g24sj")
+shader = SubResource("Shader_6hwvi")
 shader_parameter/speed = 1.0
 shader_parameter/scale = 3.0
 shader_parameter/main_color = Vector4(1, 0.3, 0, 1)
