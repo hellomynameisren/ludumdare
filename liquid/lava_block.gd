@@ -26,6 +26,7 @@ func get_valid_lava_neighbors() -> Array:
 			potential_positions.append(check_position)
 	if not potential_positions:
 		exhausted = true
+		$CPUParticles2D.emitting = false
 	return potential_positions
 
 func _is_valid_lava_position(position: Vector2) -> bool:
