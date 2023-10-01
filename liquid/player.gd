@@ -8,27 +8,73 @@ var gravity = 850 ## prev 1000
 var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
 var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
+var animation_tree: AnimationTree
+
+func _on_Animation_finished(animation_name: String):
+	print("Finished Animation: ", animation_name)
 
 func _ready():
-	pass
+	$AnimationPlayer.connect("animation_finished", self._on_Animation_finished)
+
+	animation_tree = $AnimationTree
+	animation_tree.set_active(true)
+	animation_tree.set("parameters/playback", "idle")
 	#$AnimatedSprite2D.play("default")
+
+var prev_state = ""
+var prev_animation = ""
+
+func update_animation_parameters():
+	var current_state = $AnimationTree.get("parameters/playback").get_current_node()
+	var current_animation = $AnimationPlayer.current_animation
+
+	if current_state != prev_state:
+		print("State changed! Current State: " + str(current_state))
+		prev_state = current_state
+
+	if current_animation != prev_animation:
+		print("Animation changed! Currently playing: ", current_animation)
+		prev_animation = current_animation
+
+	if velocity.y < 0:
+		animation_tree["parameters/conditions/is_jumping"] = true
+		animation_tree["parameters/conditions/is_falling"] = false
+		animation_tree["parameters/conditions/is_running"] = false
+		animation_tree["parameters/conditions/is_idle"] = false
+	elif velocity.y > 0:
+		animation_tree["parameters/conditions/is_jumping"] = false
+		animation_tree["parameters/conditions/is_falling"] = true
+		animation_tree["parameters/conditions/is_running"] = false
+		animation_tree["parameters/conditions/is_idle"] = false
+	else:
+		animation_tree["parameters/conditions/is_jumping"] = false
+		animation_tree["parameters/conditions/is_falling"] = false
+		if velocity.x == 0:
+			animation_tree["parameters/conditions/is_idle"] = true
+			animation_tree["parameters/conditions/is_running"] = false
+		else:
+			animation_tree["parameters/conditions/is_idle"] = false
+			animation_tree["parameters/conditions/is_running"] = true
+	$Sprite2D.flip_h = velocity.x < 0
+	
+	
 
 
 func get_input():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
-	if Input.is_action_pressed("ui_d"):
-		$Sprite2D.flip_h = false  # No flip
-		if is_on_floor():
-			$AnimationPlayer.play("run")
-	elif Input.is_action_pressed("ui_a"):
-		$Sprite2D.flip_h = true  # Flip
-		if is_on_floor():
-			$AnimationPlayer.play("run")
-	else:
-		if is_on_floor():
-			$AnimationPlayer.play("rest", false)
+	#if Input.is_action_pressed("ui_d"):
+	#	$Sprite2D.flip_h = false  # No flip
+	#	if is_on_floor():
+	#		$AnimationPlayer.play("run")
+	#elif Input.is_action_pressed("ui_a"):
+	#	$Sprite2D.flip_h = true  # Flip
+	#	if is_on_floor():
+	#		$AnimationPlayer.play("run")
+	#else:
+	#	if is_on_floor():
+	#		$AnimationPlayer.play("rest", false)
 	return input_vector
 
 
@@ -38,7 +84,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_w"):
 			velocity.y = jump_speed
-			$AnimationPlayer.play("jump")
+			# $AnimationPlayer.play("jump")
 		else:
 			velocity.y = 0
 	else:
@@ -51,13 +97,13 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 			velocity.x = speed
 			last_wall_jump_dir = -1
-			$AnimationPlayer.play("jump")
+			# $AnimationPlayer.play("jump")
 		# If the player is touching the right wall, didn't jump off a right wall last time, and the last key pressed wasn't right
 		elif velocity.x > 0 and last_wall_jump_dir != 1 and last_key_dir != 1:
 			velocity.y = jump_speed
 			velocity.x = -speed
 			last_wall_jump_dir = 1
-			$AnimationPlayer.play("jump")
+			# $AnimationPlayer.play("jump")
 
 	# Reset last_wall_jump_dir when touching the ground or opposite wall
 	if is_on_floor() or (input_vector.x > 0 and last_wall_jump_dir == -1) or (input_vector.x < 0 and last_wall_jump_dir == 1):
@@ -81,4 +127,6 @@ func _physics_process(delta):
 			get_parent().go_to_game_over_scene()
 		if body.get_collider() is goal:
 			get_parent().go_to_you_win_scene()
+			
+	update_animation_parameters()
 			

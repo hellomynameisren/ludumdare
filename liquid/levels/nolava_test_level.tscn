@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxrfghuqui0dp"]
+
+[ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_atdt6"]
+[ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_kn30o"]
+[ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="3_6w7x7"]
+
+[node name="Level" instance=ExtResource("1_atdt6")]
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_kn30o")]
+position = Vector2(544, 279)
+
+[node name="TileMap" type="TileMap" parent="." index="4"]
+tile_set = ExtResource("3_6w7x7")
+format = 2
+layer_0/tile_data = PackedInt32Array(1507348, 65536, 1, 1572884, 65536, 1, 1572885, 65536, 1, 1572886, 65536, 1, 1638423, 65536, 1, 1638424, 65536, 1, 1638425, 65536, 1, 1638426, 65536, 1, 1638427, 65536, 1, 1638428, 65536, 1, 1638429, 65536, 1, 1703965, 65536, 1, 1703966, 65536, 1, 1703967, 65536, 1, 1703968, 65536, 1, 1703969, 65536, 1, 1769505, 65536, 1, 1769506, 65536, 1, 1769507, 65536, 1, 1769508, 65536, 1, 1769509, 65536, 1, 1769510, 65536, 1, 1769511, 65536, 1, 1769512, 65536, 1, 1769513, 65536, 1, 1769514, 65536, 1, 1835051, 65536, 1, 1835052, 65536, 1, 1835053, 65536, 1, 1835054, 65536, 1, 1835055, 65536, 1, 1769519, 65536, 1, 1769520, 65536, 1, 1769521, 65536, 1, 1769522, 65536, 1, 1703987, 65536, 1, 1703988, 65536, 1, 1638452, 65536, 1, 1638453, 65536, 1, 1638454, 65536, 1, 1572918, 65536, 1, 1572919, 65536, 1, 1507383, 65536, 1, 1507384, 65536, 1, 1507385, 65536, 1, 1441849, 65536, 1, 1441850, 65536, 1, 1507386, 65536, 1, 1507387, 65536, 1, 1507388, 65536, 1)
