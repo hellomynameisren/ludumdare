@@ -36,3 +36,8 @@ damping_max = 100.0
 scale_amount_min = 3.8
 scale_amount_max = 11.7
 color = Color(0.603922, 0.305882, 0.305882, 1)
+
+[node name="ExhaustTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="ExhaustTimer" to="." method="_on_exhaust_timer_timeout"]

@@ -17,15 +17,20 @@ func _process(delta):
 	pass
 	
 var reset_timer: Timer
+
+var bad_offsets = []
 	
 func get_valid_lava_neighbors() -> Array:
 	if exhausted:
 		return []
 	var potential_positions = []
 	for offset in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)]:
-		var check_position = self.global_position + lava_width * offset
-		if _is_valid_lava_position(check_position):
-			potential_positions.append(check_position)
+		if not bad_offsets.has(offset):
+			var check_position = self.global_position + lava_width * offset
+			if _is_valid_lava_position(check_position):
+				potential_positions.append(check_position)
+			else:
+				bad_offsets.append(offset)
 	if not potential_positions:
 		exhausted = true
 		$CPUParticles2D.emitting = false
@@ -42,6 +47,7 @@ func get_valid_lava_neighbors() -> Array:
 func _on_reset_timer_timeout():
 	exhausted = false
 	reset_timer.queue_free()
+	bad_offsets = []
 	
 
 func _is_valid_lava_position(position: Vector2) -> bool:
