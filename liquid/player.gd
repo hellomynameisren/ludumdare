@@ -79,6 +79,8 @@ func _physics_process(delta):
 		## in hazard group
 		if body.get_collider().is_in_group("hazard"):
 			get_parent().go_to_game_over_scene()
+		if body.get_collider().is_in_group("thwomp"):
+			velocity.y *= 2
 		if body.get_collider() is goal:
 			get_parent().go_to_you_win_scene()
 			
