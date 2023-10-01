@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://v86jy6ehd2uk"]
+
+[ext_resource type="Script" path="res://liquid/Thwomp.gd" id="1_oa8a6"]
+
+[sub_resource type="Gradient" id="Gradient_44xy5"]
+offsets = PackedFloat32Array(0, 0.99422)
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_08nos"]
+gradient = SubResource("Gradient_44xy5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fm0"]
+size = Vector2(20.2857, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5jum"]
+size = Vector2(50, 11)
+
+[node name="Thwomp" type="RigidBody2D"]
+position = Vector2(1200, -650)
+lock_rotation = true
+script = ExtResource("1_oa8a6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999997, 0.500008)
+scale = Vector2(0.265625, 99)
+texture = SubResource("GradientTexture1D_08nos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(3.5, 5)
+shape = SubResource("RectangleShape2D_f7fm0")
+
+[node name="Area2D" type="Area2D" parent="." groups=["hazard"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["hazard"]]
+position = Vector2(-0.5, 49.5)
+shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 300)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["hazard", "thwomp"]]
+position = Vector2(0, 65)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["hazard"]]
+shape = SubResource("RectangleShape2D_u5jum")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
