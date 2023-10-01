@@ -25,6 +25,7 @@ func _process(delta):
 	pass
 	
 func reset_level():
+	await get_tree().create_timer(0.15).timeout
 	load_level(levels[level_ix])
 
 func next_level():
@@ -33,7 +34,6 @@ func next_level():
 		level_ix += 1
 		reset_level()
 	else:
-		await get_tree().create_timer(0.3).timeout
 		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
 		
 # Function to load a level (accepts a PackedScene as argument)
