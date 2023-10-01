@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdb8j"]
 size = Vector2(154, 20)
 
-[node name="Level" instance=ExtResource("1_od5ia")]
+[node name="Level2" instance=ExtResource("1_od5ia")]
 
 [node name="Goal" parent="." index="3" instance=ExtResource("2_uefbq")]
 position = Vector2(781, 362)
@@ -37,7 +37,7 @@ position = Vector2(43, 405)
 position = Vector2(292, -125)
 shape = SubResource("RectangleShape2D_vdb8j")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="9"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="8"]
 z_index = -50
 position = Vector2(303, 433)
 texture = ExtResource("8_fpk6t")

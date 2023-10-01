@@ -15,9 +15,12 @@
 script = ExtResource("2_pvljw")
 
 [node name="Player" parent="." index="0" instance=ExtResource("3_c8qjj")]
-position = Vector2(100, -1500)
+position = Vector2(100, 250)
 scale = Vector2(1.00674, 1.10311)
 slide_on_ceiling = false
+
+[node name="Background" parent="." index="2"]
+position = Vector2(0, -160)
 
 [node name="Goal" parent="." index="3" instance=ExtResource("4_1vw8s")]
 position = Vector2(-1600, -1600)
@@ -40,9 +43,6 @@ position = Vector2(-200, -140)
 
 [node name="Ceiling Hazard6" parent="." index="9" instance=ExtResource("5_67nkw")]
 position = Vector2(-310, -300)
-
-[node name="Background" parent="." index="10"]
-position = Vector2(0, -160)
 
 [node name="TileMap" type="TileMap" parent="." index="11"]
 position = Vector2(15, -8)
@@ -75,7 +75,7 @@ position = Vector2(-1375, -1600)
 [node name="Boulder2" parent="." index="18" instance=ExtResource("7_xrsvs")]
 position = Vector2(-550, -1350)
 
-[node name="BackgroundImage" type="Sprite2D" parent="." index="20"]
+[node name="BackgroundImage" type="Sprite2D" parent="." index="19"]
 z_index = -50
 position = Vector2(272, -475)
 scale = Vector2(2.65261, 2.65261)

@@ -4,23 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="2_evgg3"]
 [ext_resource type="PackedScene" uid="uid://bhfbw7nch3ctu" path="res://liquid/background.tscn" id="3_qp5hu"]
 
-[sub_resource type="Gradient" id="Gradient_i8xcg"]
+[sub_resource type="Gradient" id="Gradient_6c537"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.14902, 0.223529, 0.309804, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_payy3"]
-gradient = SubResource("Gradient_i8xcg")
+gradient = SubResource("Gradient_6c537")
 width = 10000
 height = 10000
 
-[node name="Level" type="Node2D"]
+[node name="Level3" type="Node2D"]
 script = ExtResource("1_xdlnr")
 
 [node name="LavaSpawner" parent="." instance=ExtResource("2_evgg3")]
 position = Vector2(-1, -1)
 
 [node name="Background" parent="." instance=ExtResource("3_qp5hu")]
-visible = false
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 z_index = -1000

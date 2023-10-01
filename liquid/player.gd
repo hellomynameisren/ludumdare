@@ -4,7 +4,7 @@ class_name player
 
 var speed = 300 ## prev 250 
 var jump_speed = -500
-var gravity = 850 ## prev 1000
+var gravity = 925 ## prev 1000
 var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
 var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 

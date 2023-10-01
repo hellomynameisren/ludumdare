@@ -59,7 +59,7 @@ rotation = 3.13749
 [node name="LavaHole" parent="." index="8" instance=ExtResource("7_psotc")]
 position = Vector2(51, 73)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="10"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="9"]
 z_index = -50
 position = Vector2(241, 369)
 texture = ExtResource("8_hx6eb")

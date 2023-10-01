@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://njuq5dfnbg27"]
+
+[ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="1_66xrr"]
+[ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_mvq5c"]
+[ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_fwj1f"]
+
+[sub_resource type="Gradient" id="Gradient_i8xcg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.14902, 0.223529, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3r8k"]
+gradient = SubResource("Gradient_i8xcg")
+width = 10000
+height = 10000
+
+[node name="01_intro" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -50
+position = Vector2(303, 433)
+texture = ExtResource("1_66xrr")
+
+[node name="BackgroundColor" type="Sprite2D" parent="Sprite2D"]
+z_index = -1000
+texture = SubResource("GradientTexture2D_i3r8k")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(303, 433)
+tile_set = ExtResource("2_mvq5c")
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("3_fwj1f")]
+position = Vector2(-450, 500)
