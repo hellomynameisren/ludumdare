@@ -36,28 +36,31 @@ func _add_lava():
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for pos in child.get_valid_lava_neighbors():
 				potential_positions.append(pos)
-					
-
-	if potential_positions:
-		# Filter to only the positions with the highest y value
-		var highest_y = potential_positions[0].y
-		for pos in potential_positions:
-			highest_y = max(highest_y, pos.y)
-			
-		var highest_y_positions = []
-		for pos in potential_positions:
-			if pos.y == highest_y:
-				highest_y_positions.append(pos)
+	for i in range(number_to_spawn):
+		if potential_positions:
+			# Filter to only the positions with the highest y value
+			var highest_y = potential_positions[0].y
+			for pos in potential_positions:
+				highest_y = max(highest_y, pos.y)
 				
-		var random_position = highest_y_positions[randi() % highest_y_positions.size()]
-		_place_lava_at(random_position)
+			var highest_y_positions = []
+			for pos in potential_positions:
+				if pos.y == highest_y:
+					highest_y_positions.append(pos)
+					
+			var random_position = highest_y_positions[randi() % highest_y_positions.size()]
+			var placed = _place_lava_at(random_position)
+			potential_positions = potential_positions.filter(func(x): x != random_position)
+			for pos in placed.get_valid_lava_neighbors():
+				potential_positions.append(pos)
 		
 
-func _place_lava_at(position: Vector2):
+func _place_lava_at(position: Vector2) -> lava_block:
 	var lava_instance = LavaScene.instantiate()
 	lava_instance.global_position = position
 	world.add_child(lava_instance)
 	lava_instance.global_position = position
+	return lava_instance
 
 # A dictionary to store the validity of positions
 var validity_cache = {}
@@ -66,5 +69,4 @@ var validity_cache = {}
 
 
 func _on_timer_timeout():
-	for i in range(number_to_spawn):
-		_add_lava()
+	_add_lava()
