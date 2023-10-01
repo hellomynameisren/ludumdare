@@ -58,10 +58,16 @@ func update_animation_parameters():
 	$Sprite2D.flip_h = velocity.x < 0
 	
 	
-
+func level_ended():
+	var parent = get_parent()
+	if parent is level:
+		return parent.level_ended
+	return false
 
 func get_input():
 	var input_vector = Vector2.ZERO
+	if level_ended():
+		return input_vector
 	input_vector.x = Input.get_action_strength("ui_d") - Input.get_action_strength("ui_a")
 	velocity.x = input_vector.x * speed
 	#if Input.is_action_pressed("ui_d"):
@@ -108,8 +114,8 @@ func _physics_process(delta):
 	# Reset last_wall_jump_dir when touching the ground or opposite wall
 	if is_on_floor() or (input_vector.x > 0 and last_wall_jump_dir == -1) or (input_vector.x < 0 and last_wall_jump_dir == 1):
 		last_wall_jump_dir = 0
-
-	move_and_slide()
+	if not level_ended():
+		move_and_slide()
 
 	# Existing collision checks...
 	
