@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nd1iag724mnm"]
+
+[ext_resource type="Script" path="res://liquid/flying_spider_follow.gd" id="1_v366k"]
+
+[node name="FlyingSpiderFollow" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_v366k")

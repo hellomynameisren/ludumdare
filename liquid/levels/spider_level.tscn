@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqbou3am81fge"]
+[gd_scene load_steps=8 format=3 uid="uid://cqbou3am81fge"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_fxu03"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="3_ljihy"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_dmipc"]
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_hoiow"]
+[ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="5_ku6e8"]
+
+[sub_resource type="Curve2D" id="Curve2D_vwlrs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -121, -11, 0, 0, 0, 0, -365, -12, 0, 0, 0, 0, -121, -11)
+}
+point_count = 3
 
 [node name="Level" instance=ExtResource("1_fxu03")]
 
@@ -19,5 +26,15 @@ layer_0/tile_data = PackedInt32Array(1638409, 65536, 1, 1638410, 65536, 1, 16384
 [node name="Goal" parent="." index="5" instance=ExtResource("4_dmipc")]
 position = Vector2(667, 413)
 
-[node name="FlyingSpider" parent="." index="6" instance=ExtResource("5_hoiow")]
-position = Vector2(458, 388)
+[node name="Path2D" type="Path2D" parent="." index="6"]
+position = Vector2(667, 413)
+curve = SubResource("Curve2D_vwlrs")
+
+[node name="FlyingSpiderFollow" parent="Path2D" index="0" instance=ExtResource("5_ku6e8")]
+position = Vector2(-121, -11)
+rotation = -3.13749
+progress = 488.004
+
+[node name="FlyingSpider" parent="Path2D/FlyingSpiderFollow" index="0" instance=ExtResource("5_hoiow")]
+position = Vector2(-1.99194, 2.00824)
+rotation = 3.13749
