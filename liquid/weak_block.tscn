@@ -14,6 +14,7 @@ height = 16
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngy3"]
+size = Vector2(16, 20)
 
 [node name="WeakBlock" type="RigidBody2D"]
 script = ExtResource("1_kacg3")
@@ -27,6 +28,7 @@ shape = SubResource("RectangleShape2D_rc44y")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1ngy3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

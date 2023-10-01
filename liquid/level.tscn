@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://liquid/level.gd" id="1_50m2i"]
 [ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="1_mdu2v"]
-[ext_resource type="PackedScene" uid="uid://bhfbw7nch3ctu" path="res://liquid/background.tscn" id="3_np1cl"]
+[ext_resource type="PackedScene" path="res://liquid/background.tscn" id="3_np1cl"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_50m2i")

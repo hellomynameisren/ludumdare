@@ -24,4 +24,4 @@ func start_gravity_delay():
 
 func _on_timer_timeout():
     # Set the gravity scale to 1 to make it fall
-    gravity_scale = 1
+    gravity_scale = 2
