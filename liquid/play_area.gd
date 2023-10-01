@@ -11,6 +11,7 @@ var levels = [
 	preload("res://liquid/levels/chamber_level2.tscn"),
 	preload("res://liquid/levels/gravel_level2.tscn"),
 	preload("res://liquid/levels/spider_level2.tscn"),
+	preload("res://liquid/levels/falling_level.tscn"),
 	preload("res://liquid/levels/race_level2.tscn"),
 	#preload("res://liquid/levels/gravel_level.tscn"),
 	#preload("res://liquid/levels/spider_level.tscn"),

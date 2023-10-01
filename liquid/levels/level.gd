@@ -26,9 +26,12 @@ func go_to_you_win_scene():
 		$BackgroundColor.z_index = 100
 		var player = get_node("Player")
 		var goal = get_node("Goal")
-		player.z_index = 200
+		player.z_index = 300
 		goal.z_index = 200
 		goal.global_position.x = player.global_position.x + 50
+		
+		goal.global_position.y = player.global_position.y + 30
+		
 		# player.get_node("Camera2D").enabled = false
 		await get_tree().create_timer(2.0).timeout
 		var playarea = get_parent()
