@@ -8,7 +8,6 @@ var gravity = 1000
 var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
 var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
-var level_ended = false
 
 func _ready():
 	pass
@@ -76,28 +75,10 @@ func _physics_process(delta):
 	for idx in get_slide_collision_count():
 		var body = get_slide_collision(idx)
 		if body.get_collider() is lava_block:
-			go_to_game_over_scene()
+			get_parent().go_to_game_over_scene()
 		## in hazard group
 		if body.get_collider().is_in_group("hazard"):
-			go_to_game_over_scene()
+			get_parent().go_to_game_over_scene()
 		if body.get_collider() is goal:
-			go_to_you_win_scene()
+			get_parent().go_to_you_win_scene()
 			
-
-func go_to_game_over_scene():
-	if not level_ended:
-		level_ended = true
-		var playarea = get_parent().get_parent()
-		if playarea is play_area:
-			playarea.reset_level()
-		else:
-			get_tree().change_scene_to_file("res://liquid/game_over.tscn")
-	
-func go_to_you_win_scene():
-	if not level_ended:
-		level_ended = true
-		var playarea = get_parent().get_parent()
-		if playarea is play_area:
-			playarea.next_level()
-		else:
-			get_tree().change_scene_to_file("res://liquid/you_win.tscn")
