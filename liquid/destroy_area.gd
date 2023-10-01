@@ -15,5 +15,5 @@ func _process(delta):
 
 func destroy_in_area():
 	for body in get_overlapping_bodies():
-		if body is breakable_wall:
+		if body.is_in_group("breakable"):
 			body.queue_free()
