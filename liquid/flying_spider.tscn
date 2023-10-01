@@ -48,11 +48,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it8v1"]
 size = Vector2(36, 16)
 
-[node name="FlyingSpider" type="StaticBody2D"]
+[node name="FlyingSpider" type="StaticBody2D" groups=["hazard"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qrixb")
-frame_progress = 0.738704
+frame_progress = 0.592536
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_it8v1")
