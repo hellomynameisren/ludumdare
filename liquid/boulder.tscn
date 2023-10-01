@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://xlouclsit2xv"]
 
 [ext_resource type="Script" path="res://liquid/Boulder.gd" id="1_fudh2"]
-[ext_resource type="Texture2D" uid="uid://g2tlp6bdflv5" path="res://assets/gravel_circle.png" id="2_4umdu"]
+[ext_resource type="Texture2D" uid="uid://caaxxbl2rgc2w" path="res://assets/boulder.png" id="2_ahugw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3p18"]
 
@@ -18,8 +18,9 @@ script = ExtResource("1_fudh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_u3p18")
-scale = Vector2(10, 10)
-texture = ExtResource("2_4umdu")
+position = Vector2(0.999999, 1)
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("2_ahugw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a5c43")
