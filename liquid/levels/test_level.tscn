@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dreol3ftae1sa"]
+[gd_scene load_steps=12 format=3 uid="uid://dreol3ftae1sa"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_kb6yd"]
 [ext_resource type="Script" path="res://liquid/levels/test_level.gd" id="2_pvljw"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="8_pgplg"]
 [ext_resource type="PackedScene" path="res://thwomp.tscn" id="9_t8sim"]
 [ext_resource type="Texture2D" uid="uid://d0usgr1qvxqau" path="res://assets/levels/level_v2.png" id="10_xdlfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b3tj"]
+size = Vector2(1800, 300)
 
 [node name="Level3" instance=ExtResource("1_kb6yd")]
 script = ExtResource("2_pvljw")
@@ -54,6 +57,12 @@ layer_0/tile_data = PackedInt32Array(2490369, 1, 0, 2555905, 1, 0, 2621441, 1, 0
 [node name="Boulder" parent="." index="12" instance=ExtResource("7_xrsvs")]
 position = Vector2(1300, -400)
 
+[node name="Area2D2" type="Area2D" parent="Boulder" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder/Area2D2" index="0"]
+shape = SubResource("RectangleShape2D_4b3tj")
+debug_color = Color(0.992157, 0, 0.266667, 0.419608)
+
 [node name="LavaBlock" parent="." index="13" instance=ExtResource("8_pgplg")]
 position = Vector2(-160, 625)
 scale = Vector2(20, 2)
@@ -74,6 +83,12 @@ position = Vector2(-1375, -1600)
 
 [node name="Boulder2" parent="." index="18" instance=ExtResource("7_xrsvs")]
 position = Vector2(-550, -1350)
+
+[node name="Area2D2" type="Area2D" parent="Boulder2" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder2/Area2D2" index="0"]
+shape = SubResource("RectangleShape2D_4b3tj")
+debug_color = Color(0.992157, 0, 0.266667, 0.419608)
 
 [node name="BackgroundImage" type="Sprite2D" parent="." index="19"]
 z_index = -50

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf624dlui514j"]
+[gd_scene load_steps=11 format=3 uid="uid://t2lddaqyj1h8"]
 
 [ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_4iqk0"]
 [ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="2_pwsgo"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="4_lwgnn"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="5_p38si"]
 [ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="6_ackp2"]
-[ext_resource type="FontFile" uid="uid://dx116tosd73ui" path="res://assets/adrip1.ttf" id="7_1tadp"]
+[ext_resource type="FontFile" uid="uid://bqqtblvedena6" path="res://assets/adrip1.ttf" id="7_1tadp"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
