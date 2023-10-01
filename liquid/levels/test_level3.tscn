@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://de4h0sjnox2rf"]
+[gd_scene load_steps=9 format=3 uid="uid://de4h0sjnox2rf"]
 
-[ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/level.tscn" id="1_ekstx"]
 [ext_resource type="Script" path="res://liquid/levels/test_level3.gd" id="2_y20pw"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_vqja5"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="4_m4vly"]
@@ -12,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ex6w"]
 size = Vector2(156, 20)
 
-[node name="Level" instance=ExtResource("1_ekstx")]
+[node name="Level"]
 script = ExtResource("2_y20pw")
 
 [node name="Player" parent="." index="3" instance=ExtResource("3_vqja5")]
