@@ -29,11 +29,11 @@ func update_animation_parameters():
 	var current_animation = $AnimationPlayer.current_animation
 
 	if current_state != prev_state:
-		print("State changed! Current State: " + str(current_state))
+		# print("State changed! Current State: " + str(current_state))
 		prev_state = current_state
 
 	if current_animation != prev_animation:
-		print("Animation changed! Currently playing: ", current_animation)
+		# print("Animation changed! Currently playing: ", current_animation)
 		prev_animation = current_animation
 
 	if velocity.y < 0:

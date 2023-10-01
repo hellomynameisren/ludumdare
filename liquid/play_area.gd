@@ -33,7 +33,6 @@ func _process(delta):
 	pass
 	
 func reset_level():
-	await get_tree().create_timer(0.15).timeout
 	load_level(levels[level_ix])
 
 func next_level():
@@ -52,6 +51,8 @@ func load_level(level_scene):
 	# If there is a level already, remove it
 	if current_level:
 		current_level.queue_free()
+	
+	await get_tree().create_timer(0.15).timeout
 	
 	# Create an instance of the desired level
 	current_level = level_scene.instantiate()
