@@ -13,7 +13,7 @@ gradient = SubResource("Gradient_i8xcg")
 width = 10000
 height = 10000
 
-[node name="01_intro" type="Node2D"]
+[node name="00_template" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -50
