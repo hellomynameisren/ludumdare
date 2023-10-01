@@ -1,5 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqbou3am81fge"]
+[gd_scene load_steps=5 format=3 uid="uid://cqbou3am81fge"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_fxu03"]
+[ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="2_irvqr"]
+[ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="3_ljihy"]
+[ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_dmipc"]
 
 [node name="Level" instance=ExtResource("1_fxu03")]
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_irvqr")]
+position = Vector2(223, 275)
+
+[node name="TileMap" type="TileMap" parent="." index="4"]
+tile_set = ExtResource("3_ljihy")
+format = 2
+layer_0/tile_data = PackedInt32Array(1638409, 65536, 1, 1638410, 65536, 1, 1638411, 65536, 1, 1638412, 65536, 1, 1638413, 65536, 1, 1638414, 65536, 1, 1638415, 65536, 1, 1638416, 65536, 1, 1638417, 65536, 1, 1703953, 65536, 1, 1703954, 65536, 1, 1703955, 65536, 1, 1703956, 65536, 1, 1703957, 65536, 1, 1703958, 65536, 1, 1703959, 65536, 1, 1703960, 65536, 1, 1703961, 65536, 1, 1703962, 65536, 1, 1703963, 65536, 1, 1703964, 65536, 1, 1703965, 65536, 1, 1703966, 65536, 1, 1703967, 65536, 1, 1703968, 65536, 1, 1703969, 65536, 1, 1703970, 65536, 1, 1769506, 65536, 1, 1769507, 65536, 1, 1769508, 65536, 1)
+
+[node name="Goal" parent="." index="5" instance=ExtResource("4_dmipc")]
+position = Vector2(667, 413)
