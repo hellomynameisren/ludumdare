@@ -60,6 +60,7 @@ func replace_tiles():
 				var lava_instance = lava_block_scene.instantiate()
 				lava_instance.global_position = position
 				self.add_child(lava_instance)
+				lava_instance.global_position = position
 				tilemap.set_cell(0, tile_coord, -1)
 			if tile_id == 2:
 				var frame = tilemap.get_cell_tile_data(0, tile_coord).get_custom_data_by_layer_id(0)
@@ -68,16 +69,19 @@ func replace_tiles():
 				breakable_instance.global_position = position
 				breakable_instance.get_node("Sprite2D").frame = frame
 				self.add_child(breakable_instance)
+				breakable_instance.global_position = position
 				tilemap.set_cell(0, tile_coord, -1)
 			if tile_id == 3:
 				var position = tilemap.map_to_local(tile_coord + Vector2(1/2, 1/2))
 				var gravel_instance = gravel_scene.instantiate()
 				gravel_instance.global_position = position
 				self.add_child(gravel_instance)
+				gravel_instance.global_position = position
 				tilemap.set_cell(0, tile_coord, -1)
 			if tile_id == 4:
 				var position = tilemap.map_to_local(tile_coord + Vector2(1/2, 1/2))
 				var weak_instance = weak_scene.instantiate()
 				weak_instance.global_position = position
 				self.add_child(weak_instance)
+				weak_instance.global_position = position
 				tilemap.set_cell(0, tile_coord, -1)

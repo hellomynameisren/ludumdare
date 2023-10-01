@@ -35,6 +35,7 @@ func _add_lava():
 		# Check if the child is a lava node, adjust this based on your setup
 		if child is lava_block:  # Or "child is Lava" if Lava is a script type
 			for pos in child.get_valid_lava_neighbors():
+				print("child " + str(child.global_position) + " pos " + str(pos))
 				potential_positions.append(pos)
 					
 
@@ -57,6 +58,7 @@ func _place_lava_at(position: Vector2):
 	var lava_instance = LavaScene.instantiate()
 	lava_instance.global_position = position
 	world.add_child(lava_instance)
+	lava_instance.global_position = position
 
 # A dictionary to store the validity of positions
 var validity_cache = {}
