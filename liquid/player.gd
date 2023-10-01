@@ -8,6 +8,8 @@ var gravity = 1000
 var last_wall_jump_dir = 0 # 0: No wall jump, -1: Left wall, 1: Right wall
 var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
+var level_ended = false
+
 func _ready():
 	pass
 	#$AnimatedSprite2D.play("default")
@@ -83,15 +85,19 @@ func _physics_process(delta):
 			
 
 func go_to_game_over_scene():
-	var playarea = get_parent().get_parent()
-	if playarea is play_area:
-		playarea.reset_level()
-	else:
-		get_tree().change_scene_to_file("res://liquid/game_over.tscn")
+	if not level_ended:
+		level_ended = true
+		var playarea = get_parent().get_parent()
+		if playarea is play_area:
+			playarea.reset_level()
+		else:
+			get_tree().change_scene_to_file("res://liquid/game_over.tscn")
 	
 func go_to_you_win_scene():
-	var playarea = get_parent().get_parent()
-	if playarea is play_area:
-		playarea.next_level()
-	else:
-		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
+	if not level_ended:
+		level_ended = true
+		var playarea = get_parent().get_parent()
+		if playarea is play_area:
+			playarea.next_level()
+		else:
+			get_tree().change_scene_to_file("res://liquid/you_win.tscn")
