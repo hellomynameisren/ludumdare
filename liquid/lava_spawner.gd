@@ -66,4 +66,5 @@ var validity_cache = {}
 
 
 func _on_timer_timeout():
-	_add_lava()
+	for i in range(number_to_spawn):
+		_add_lava()
