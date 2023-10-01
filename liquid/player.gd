@@ -122,6 +122,9 @@ func _physics_process(delta):
 
 	if is_on_wall():
 		velocity.x = 0
+		
+	if global_position.y > 3000:
+		get_parent().go_to_game_over_scene()
 	
 	# Check for lava collision
 	for idx in get_slide_collision_count():
