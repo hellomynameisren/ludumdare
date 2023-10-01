@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2c6w4sfumsp0"]
+[gd_scene load_steps=9 format=3 uid="uid://cgxlq347lgev8"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/levels/level.tscn" id="1_od5ia"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="2_uefbq"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_v0ove"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="4_nt08m"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="5_x0xjp"]
-[ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="6_4k0m8"]
+[ext_resource type="PackedScene" path="res://liquid/floor_switch.tscn" id="6_4k0m8"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="7_hptnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdb8j"]
