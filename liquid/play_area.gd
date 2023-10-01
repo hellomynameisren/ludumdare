@@ -18,7 +18,8 @@ var current_level = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_level(Level1)
+	pass
+	# load_level(Level1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
