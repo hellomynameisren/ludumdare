@@ -36,6 +36,9 @@ func next_level():
 	else:
 		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
 		
+func display_level():
+	$CanvasLayer.get_node("Label").text = "Level " + str(level_ix + 1)
+		
 # Function to load a level (accepts a PackedScene as argument)
 func load_level(level_scene):
 	# If there is a level already, remove it
@@ -47,3 +50,4 @@ func load_level(level_scene):
 	
 	# Add the level instance to the scene tree
 	add_child(current_level)
+	display_level()

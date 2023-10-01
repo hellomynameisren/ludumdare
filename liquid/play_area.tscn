@@ -4,3 +4,13 @@
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_7lk1u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+z_index = 1000
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 60.0
+offset_bottom = 29.0
+text = "Level 1"
