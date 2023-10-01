@@ -7,9 +7,12 @@ class_name play_area
 # var Level1 = preload("res://liquid/levels/level_one.tscn")
 # var Level2 = preload("res://liquid/levels/test_level2.tscn")
 # var Level3 = preload("res://liquid/levels/test_level3.tscn")
+var levels = [
+	preload("res://liquid/levels/chamber_level.tscn")
+]
 
 # var levels = [Level1, Level2, Level3]
-var levels = []
+
 
 var level_ix = 0
 
@@ -18,7 +21,7 @@ var current_level = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	reset_level()
 	# load_level(Level1)
 
 
