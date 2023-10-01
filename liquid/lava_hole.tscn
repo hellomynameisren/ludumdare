@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://baep8bkn4mli2"]
+[gd_scene load_steps=3 format=3 uid="uid://baep8bkn4mli2"]
 
 [ext_resource type="Texture2D" uid="uid://dhp3dm8vvv8lr" path="res://assets/lavahole_black.png" id="1_bnln5"]
+[ext_resource type="Texture2D" uid="uid://be0tvsefq6y76" path="res://assets/lavamask.png" id="2_ulm8k"]
 
 [node name="LavaHole" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Back" type="Sprite2D" parent="."]
 z_index = -10
 texture = ExtResource("1_bnln5")
+
+[node name="Front" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("2_ulm8k")
