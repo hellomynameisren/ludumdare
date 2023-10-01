@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name play_area
+
 
 # Preload or load your level scenes (Note: use "preload" if the path is known at compile-time)
 var Level1 = preload("res://liquid/levels/level_one.tscn")
@@ -22,6 +24,16 @@ func _ready():
 func _process(delta):
 	pass
 	
+func reset_level():
+	load_level(levels[level_ix])
+	
+func next_level():
+	if level_ix < levels.size() - 1:
+		level_ix += 1
+		reset_level()
+	else:
+		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
+		
 # Function to load a level (accepts a PackedScene as argument)
 func load_level(level_scene):
 	# If there is a level already, remove it

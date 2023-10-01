@@ -83,7 +83,15 @@ func _physics_process(delta):
 			
 
 func go_to_game_over_scene():
-	get_tree().change_scene_to_file("res://liquid/game_over.tscn")
+	var playarea = get_parent().get_parent()
+	if playarea is play_area:
+		playarea.reset_level()
+	else:
+		get_tree().change_scene_to_file("res://liquid/game_over.tscn")
 	
 func go_to_you_win_scene():
-	get_tree().change_scene_to_file("res://liquid/you_win.tscn")
+	var playarea = get_parent().get_parent()
+	if playarea is play_area:
+		playarea.next_level()
+	else:
+		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
