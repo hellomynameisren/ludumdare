@@ -42,6 +42,7 @@ func get_valid_lava_neighbors() -> Array:
 func _on_reset_timer_timeout():
 	exhausted = false
 	reset_timer.queue_free()
+	
 
 func _is_valid_lava_position(position: Vector2) -> bool:
 	
@@ -64,24 +65,20 @@ func _is_valid_lava_position(position: Vector2) -> bool:
 	
 	# Check if the entire lava block would be inside the world bounds
 	var lava_rect = Rect2(position - lava_shape.extents, lava_shape.extents * 2)
-	#if not world_bounds.encloses(lava_rect):
-	if false:
-		res = false
-	else:
-		var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
-		
-		# Set up the shape query
-		var query_parameters = PhysicsShapeQueryParameters2D.new()
-		query_parameters.shape = lava_shape
-		query_parameters.transform = Transform2D(0, position)
-		query_parameters.exclude = [self, world.get_node("Player")]
+	var space_state = PhysicsServer2D.space_get_direct_state(world.get_world_2d().space)
+	
+	# Set up the shape query
+	var query_parameters = PhysicsShapeQueryParameters2D.new()
+	query_parameters.shape = lava_shape
+	query_parameters.transform = Transform2D(0, position)
+	query_parameters.exclude = [self, world.get_node("Player")]
 
-		var collisions = space_state.intersect_shape(query_parameters)
-		
-		if collisions and collisions.size() > 0:
-			res = false  # There's something at this position
-		else:
-			res = true
+	var collisions = space_state.intersect_shape(query_parameters)
+	
+	if collisions and collisions.size() > 0:
+		res = false  # There's something at this position
+	else:
+		res = true
 	# Cache the result
 	# validity_cache[key] = res
 	return res

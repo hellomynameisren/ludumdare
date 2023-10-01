@@ -57,7 +57,7 @@ layer_0/tile_data = PackedInt32Array(2490369, 1, 0, 2555905, 1, 0, 2621441, 1, 0
 [node name="Boulder" parent="." index="12" instance=ExtResource("7_xrsvs")]
 position = Vector2(1300, -400)
 
-[node name="Area2D2" type="Area2D" parent="Boulder" index="3"]
+[node name="Area2D2" type="Area2D" parent="Boulder" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder/Area2D2" index="0"]
 shape = SubResource("RectangleShape2D_4b3tj")
@@ -84,7 +84,7 @@ position = Vector2(-1375, -1600)
 [node name="Boulder2" parent="." index="18" instance=ExtResource("7_xrsvs")]
 position = Vector2(-550, -1350)
 
-[node name="Area2D2" type="Area2D" parent="Boulder2" index="3"]
+[node name="Area2D2" type="Area2D" parent="Boulder2" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder2/Area2D2" index="0"]
 shape = SubResource("RectangleShape2D_4b3tj")
