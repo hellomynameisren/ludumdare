@@ -43,7 +43,7 @@ func _is_valid_lava_position(position: Vector2) -> bool:
 	lava_shape.extents = Vector2(lava_width / 2 * 0.999, lava_width / 2 * 0.999)  # half extents
 
 	# Check if position is within the world's bounds
-	var top_left = Vector2.ZERO
+	var top_left = Vector2(-5000, -5000)
 	var bottom_right = world.get_node("BottomRight").global_position
 	var world_bounds = Rect2(top_left, bottom_right - top_left)
 	

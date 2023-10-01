@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccpb6r8nmhggt"]
+
+[ext_resource type="Shader" path="res://liquid/lava_block.gdshader" id="2_g24sj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsv3u"]
+shader = ExtResource("2_g24sj")
+shader_parameter/speed = 1.0
+shader_parameter/scale = 3.0
+shader_parameter/main_color = Vector4(1, 0.3, 0, 1)
+shader_parameter/glow_color = Vector4(1, 0.5, 0, 1)
+shader_parameter/screen_size = null
+shader_parameter/time = 0.0
+
+[sub_resource type="Gradient" id="Gradient_ad0f8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.603922, 0.305882, 0.305882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p7sy4"]
+gradient = SubResource("Gradient_ad0f8")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kff3"]
+size = Vector2(16, 16)
+
+[node name="LavaBlock" type="StaticBody2D" groups=["hazard", "lava"]]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nsv3u")
+texture = SubResource("GradientTexture2D_p7sy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5kff3")
