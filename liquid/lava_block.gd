@@ -16,6 +16,8 @@ func _ready():
 func _process(delta):
 	pass
 	
+var reset_timer: Timer
+	
 func get_valid_lava_neighbors() -> Array:
 	if exhausted:
 		return []
@@ -27,7 +29,19 @@ func get_valid_lava_neighbors() -> Array:
 	if not potential_positions:
 		exhausted = true
 		$CPUParticles2D.emitting = false
+		reset_timer = Timer.new()  # Create a new Timer instance
+		self.add_child(reset_timer)  # Add it as a child to ensure it ticks
+		reset_timer.wait_time = 0.2  # Set the time to wait
+		reset_timer.one_shot = true  # Make sure it only ticks once
+		reset_timer.start()  # Start the timer
+		
+		# Connect its timeout signal to a lambda function that resets 'exhausted'
+		reset_timer.connect("timeout", self._on_reset_timer_timeout)
 	return potential_positions
+
+func _on_reset_timer_timeout():
+	exhausted = false
+	reset_timer.queue_free()
 
 func _is_valid_lava_position(position: Vector2) -> bool:
 	
