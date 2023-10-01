@@ -1,6 +1,6 @@
 extends Area2D
 
-var depressed = false
+class_name destroy_area
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,12 +13,7 @@ func _process(delta):
 	pass
 
 
-
-func _on_body_entered(body):
-	if body.is_in_group("player"):
-		depressed = true
-		print("depressed")
-		for child in get_children():
-			if child is destroy_area:
-				child.destroy_in_area()
-
+func destroy_in_area():
+	for body in get_overlapping_bodies():
+		if body is breakable_wall:
+			body.queue_free()

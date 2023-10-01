@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://de4h0sjnox2rf"]
+[gd_scene load_steps=10 format=3 uid="uid://de4h0sjnox2rf"]
 
 [ext_resource type="PackedScene" uid="uid://wrwp604x2ow3" path="res://liquid/level.tscn" id="1_ekstx"]
 [ext_resource type="Script" path="res://liquid/levels/test_level3.gd" id="2_y20pw"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="5_lmioa"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="6_opus6"]
 [ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="7_bxbrc"]
+[ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="8_th25l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ex6w"]
+size = Vector2(156, 20)
 
 [node name="Level" instance=ExtResource("1_ekstx")]
 script = ExtResource("2_y20pw")
@@ -27,3 +31,10 @@ layer_0/tile_data = PackedInt32Array(917505, 1, 0, 1179654, 0, 0, 1179653, 0, 0,
 
 [node name="FloorSwitch" parent="." index="7" instance=ExtResource("7_bxbrc")]
 position = Vector2(137, 446)
+
+[node name="DestroyArea" parent="FloorSwitch" index="2" instance=ExtResource("8_th25l")]
+position = Vector2(-137, -446)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch/DestroyArea" index="0"]
+position = Vector2(508, 361)
+shape = SubResource("RectangleShape2D_1ex6w")
