@@ -9,6 +9,25 @@ var gravel_scene = preload("res://liquid/gravel.tscn")
 var weak_scene = preload("res://liquid/weak_block.tscn")
 
 
+var level_ended = false
+
+func go_to_game_over_scene():
+	if not level_ended:
+		level_ended = true
+		var playarea = get_parent()
+		if playarea is play_area:
+			playarea.reset_level()
+		else:
+			get_tree().change_scene_to_file("res://liquid/game_over.tscn")
+	
+func go_to_you_win_scene():
+	if not level_ended:
+		level_ended = true
+		var playarea = get_parent()
+		if playarea is play_area:
+			playarea.next_level()
+		else:
+			get_tree().change_scene_to_file("res://liquid/you_win.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

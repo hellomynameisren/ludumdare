@@ -3,8 +3,8 @@ extends RigidBody2D
 var push = 0
 
 func _ready():
-    # Set the initial gravity scale to 0 to make it inert
-    gravity_scale = 1
+	# Set the initial gravity scale to 0 to make it inert
+	gravity_scale = 1
 
 func _on_body_entered(body):
     #print("Boulder triggered")
