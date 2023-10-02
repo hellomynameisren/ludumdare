@@ -24,10 +24,12 @@ func _ready():
 		"res://liquid/complete_levels/01_intro.tscn",
 		"res://liquid/complete_levels/02_climb.tscn",
 		"res://liquid/complete_levels/03_crawlers.tscn",
-		"res://liquid/complete_levels/04_skate.tscn",
-		"res://liquid/complete_levels/05_midterm.tscn",
 		"res://liquid/levels/gravel_level3.tscn",
+		"res://liquid/complete_levels/04_skate.tscn",
 		"res://liquid/levels/race_climb.tscn",
+		"res://liquid/complete_levels/05_midterm.tscn",
+		
+		
 		#load("res://liquid/levels/chamber_level2.tscn"),
 		#load("res://liquid/levels/gravel_level2.tscn"),
 		#load("res://liquid/levels/spider_level2.tscn"),
