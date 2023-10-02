@@ -72,3 +72,4 @@ position = Vector2(287.5, -372.5)
 shape = SubResource("RectangleShape2D_yblwh")
 
 [node name="LavaMap" parent="." instance=ExtResource("9_0ferf")]
+spawn_per_iter = 25
