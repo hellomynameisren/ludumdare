@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://rofcd5vk18s0"]
+
+[ext_resource type="Texture2D" uid="uid://dfk42c8cvs70j" path="res://assets/lava_tile.png" id="1_7355r"]
+[ext_resource type="Texture2D" uid="uid://dc2fml2oh7mtd" path="res://assets/empty_lava.png" id="2_lo5ps"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tk27m"]
+texture = ExtResource("1_7355r")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uy5t7"]
+texture = ExtResource("2_lo5ps")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tk27m")
+sources/1 = SubResource("TileSetAtlasSource_uy5t7")
