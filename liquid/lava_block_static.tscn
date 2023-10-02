@@ -47,7 +47,7 @@ width = 16
 height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kff3"]
-size = Vector2(16, 16)
+size = Vector2(16, 12)
 
 [node name="LavaBlock" type="StaticBody2D" groups=["hazard", "lava"]]
 metadata/_edit_lock_ = true

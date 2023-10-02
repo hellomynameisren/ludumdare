@@ -27,6 +27,7 @@ func _ready():
 		"res://liquid/levels/chamber_level3.tscn",
 		"res://liquid/complete_levels/04_skate.tscn",
 		"res://liquid/levels/race_climb.tscn",
+		"res://liquid/complete_levels/04__b_death_spiral.tscn",
 		"res://liquid/complete_levels/05_midterm.tscn",
 		
 		

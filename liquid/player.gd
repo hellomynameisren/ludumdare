@@ -119,12 +119,14 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 			velocity.x = speed
 			last_wall_jump_dir = -1
+			$AudioStreamPlayer2D.play()
 			# $AnimationPlayer.play("jump")
 		# If the player is touching the right wall, didn't jump off a right wall last time, and the last key pressed wasn't right
 		elif velocity.x > 0 and last_wall_jump_dir != 1 and last_key_dir != 1:
 			velocity.y = jump_speed
 			velocity.x = -speed
 			last_wall_jump_dir = 1
+			$AudioStreamPlayer2D.play()
 			# $AnimationPlayer.play("jump")
 
 	# Reset last_wall_jump_dir when touching the ground or opposite wall
