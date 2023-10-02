@@ -42,3 +42,4 @@ position = Vector2(-282, 515)
 position = Vector2(921, 248)
 
 [node name="LavaMap" parent="." instance=ExtResource("6_qngn2")]
+spawn_per_iter = 40
