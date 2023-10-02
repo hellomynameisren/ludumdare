@@ -10,6 +10,8 @@ var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
 var animation_tree: AnimationTree
 
+var fall_off_y = 1500
+
 func _on_Animation_finished(animation_name: String):
 	print("Finished Animation: ", animation_name)
 
@@ -19,6 +21,12 @@ func _ready():
 	animation_tree = $AnimationTree
 	animation_tree.set_active(true)
 	animation_tree.set("parameters/playback", "idle")
+	
+	var tilemap = get_parent().get_node("TileMap")
+	if tilemap:
+		var tilecoords = tilemap.get_used_rect().end
+		fall_off_y = tilemap.to_global(tilemap.map_to_local(tilecoords)).y + 800
+		
 	#$AnimatedSprite2D.play("default")
 
 var prev_state = ""
@@ -47,7 +55,7 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/is_running"] = false
 		animation_tree["parameters/conditions/is_idle"] = false
 		
-		if global_position.y > 1500:
+		if global_position.y > fall_off_y:
 			animation_tree["parameters/conditions/is_falling_off"] = true
 	else:
 		animation_tree["parameters/conditions/is_jumping"] = false
