@@ -108,6 +108,10 @@ func check_emitter(loc: Vector2):
 			lava_emitters[loc].queue_free()
 			lava_emitters.erase(loc)
 			
+func queue_check_loc(loc: Vector2):
+	var tile_loc = $TileMap.local_to_map($TileMap.to_local(loc))
+	pq_insert(global_pq, tile_loc)
+			
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
 	$TileMap.set_cell(0, loc, 0, Vector2(0, 0))
