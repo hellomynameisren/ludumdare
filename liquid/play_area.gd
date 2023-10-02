@@ -21,7 +21,7 @@ var current_level = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	levels = [
-		"res://liquid/complete_levels/01_intro.tscn",
+		"res://liquid/complete_levels/01_introduction.tscn",
 		"res://liquid/complete_levels/02_climb.tscn",
 		"res://liquid/complete_levels/03_crawlers.tscn",
 		"res://liquid/levels/gravel_level3.tscn",
