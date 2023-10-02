@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var push = 0
-var pushes = 4
+var pushes = 1
 @export var speed = 600
 @export var winertia = 265
 
