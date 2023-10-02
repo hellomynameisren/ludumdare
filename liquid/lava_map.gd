@@ -6,7 +6,7 @@ extends Node2D
 var lava_emitter_scene = preload("res://liquid/lava_emitter.tscn")
 
 
-var adjacent_positions = {}
+# var adjacent_positions = {}
 
 # var y_to_adjacent_xs = {}
 
@@ -78,13 +78,13 @@ func pq_extract_max(pq: Array):
 
 
 
-func add_adjacent(loc: Vector2) -> bool:
-	var res = not adjacent_positions.has(loc)
-	adjacent_positions[loc] = true
-	return res
+#func add_adjacent(loc: Vector2) -> bool:
+#	var res = not adjacent_positions.has(loc)
+#	adjacent_positions[loc] = true
+#	return res
 	
-func remove_adjacent(loc: Vector2):
-	adjacent_positions.erase(loc)
+#func remove_adjacent(loc: Vector2):
+#	adjacent_positions.erase(loc)
 	
 func check_emitter(loc: Vector2):
 	return
@@ -111,12 +111,13 @@ func check_emitter(loc: Vector2):
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
 	$TileMap.set_cell(0, loc, 0, Vector2(0, 0))
-	remove_adjacent(loc)
+	# remove_adjacent(loc)
 	check_emitter(loc)
 	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
 		var loc2 = loc + offset
 		check_emitter(loc2)
-		if add_adjacent(loc2):
+		# if add_adjacent(loc2):
+		if $TileMap.get_cell_source_id(0, loc2) != 0:
 			new_neighbors.append(loc2)
 			pq_insert(global_pq, loc2)
 	return new_neighbors
@@ -148,7 +149,10 @@ func _on_init_timer_timeout():
 
 
 func _on_spawn_timer_timeout():
+	#var start_time = Time.get_unix_time_from_system()
 	place_lava(spawn_per_iter)
+	#var end_time = Time.get_unix_time_from_system()
+	#print("place lava took: " + str(end_time - start_time) + " sec")
 		
 func place_lava(to_place: int):
 	while pq_size(global_pq) > 0:
