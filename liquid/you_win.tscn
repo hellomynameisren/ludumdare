@@ -1,11 +1,46 @@
-[gd_scene format=3 uid="uid://gnoabb1cmetm"]
+[gd_scene load_steps=5 format=3 uid="uid://gnoabb1cmetm"]
+
+[ext_resource type="PackedScene" uid="uid://dlixio64kyfw6" path="res://liquid/dancing_player.tscn" id="1_fdl2e"]
+[ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="2_3h5at"]
+
+[sub_resource type="Gradient" id="Gradient_i8xcg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.14902, 0.223529, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w5jwt"]
+gradient = SubResource("Gradient_i8xcg")
+width = 10000
+height = 10000
 
 [node name="YouWin" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 432.0
-offset_top = 242.0
-offset_right = 753.0
-offset_bottom = 350.0
+offset_left = 430.0
+offset_top = 143.0
+offset_right = 751.0
+offset_bottom = 251.0
 theme_override_font_sizes/font_size = 76
 text = "You Win!"
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(303, 433)
+texture = SubResource("GradientTexture2D_w5jwt")
+
+[node name="DancingPlayer" parent="." instance=ExtResource("1_fdl2e")]
+position = Vector2(582, 353)
+
+[node name="Goal" parent="." instance=ExtResource("2_3h5at")]
+position = Vector2(962, 396)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 462.0
+offset_right = 657.0
+offset_bottom = 592.0
+text = "A game by
+
+@netrunnernobody
+Ren Spears
+Jessica Taylor"
+horizontal_alignment = 1
