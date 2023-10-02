@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://0kl8yypxepv6"]
+[gd_scene load_steps=3 format=3 uid="uid://dr4eo5ov4o5lg"]
 
 [ext_resource type="Script" path="res://liquid/music_player.gd" id="1_25sw6"]
 [ext_resource type="AudioStream" uid="uid://c4ifdnps64sxw" path="res://assets/lava_run.mp3" id="1_pc22v"]
