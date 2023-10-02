@@ -7,16 +7,7 @@ class_name play_area
 # var Level1 = preload("res://liquid/levels/level_one.tscn")
 # var Level2 = preload("res://liquid/levels/test_level2.tscn")
 # var Level3 = preload("res://liquid/levels/test_level3.tscn")
-var levels = [
-	preload("res://liquid/levels/chamber_level2.tscn"),
-	preload("res://liquid/levels/gravel_level2.tscn"),
-	preload("res://liquid/levels/spider_level2.tscn"),
-	preload("res://liquid/levels/falling_level.tscn"),
-	preload("res://liquid/levels/race_level2.tscn"),
-	#preload("res://liquid/levels/gravel_level.tscn"),
-	#preload("res://liquid/levels/spider_level.tscn"),
-	#preload("res://liquid/levels/test_level.tscn"),
-]
+var levels: Array
 
 # var levels = [Level1, Level2, Level3]
 
@@ -28,6 +19,22 @@ var current_level = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	levels = [
+		load("res://liquid/complete_levels/01_intro.tscn"),
+		load("res://liquid/complete_levels/02_climb.tscn"),
+		load("res://liquid/complete_levels/03_crawlers.tscn"),
+		load("res://liquid/levels/chamber_level.tscn"),
+		load("res://liquid/levels/gravel_level3.tscn"),
+		load("res://liquid/levels/race_climb.tscn"),
+		#load("res://liquid/levels/chamber_level2.tscn"),
+		#load("res://liquid/levels/gravel_level2.tscn"),
+		#load("res://liquid/levels/spider_level2.tscn"),
+		#load("res://liquid/levels/falling_level.tscn"),
+		#load("res://liquid/levels/race_level2.tscn"),
+		#preload("res://liquid/levels/gravel_level.tscn"),
+		#preload("res://liquid/levels/spider_level.tscn"),
+		#preload("res://liquid/levels/test_level.tscn"),
+	]
 	reset_level()
 	# load_level(Level1)
 

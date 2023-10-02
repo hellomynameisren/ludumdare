@@ -8,7 +8,7 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="6_ujvk2"]
 [ext_resource type="PackedScene" uid="uid://xlouclsit2xv" path="res://liquid/boulder.tscn" id="7_xrsvs"]
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="8_pgplg"]
-[ext_resource type="PackedScene" path="res://thwomp.tscn" id="9_t8sim"]
+[ext_resource type="PackedScene" uid="uid://v86jy6ehd2uk" path="res://thwomp.tscn" id="9_t8sim"]
 [ext_resource type="Texture2D" uid="uid://d0usgr1qvxqau" path="res://assets/levels/level_v2.png" id="10_xdlfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4b3tj"]

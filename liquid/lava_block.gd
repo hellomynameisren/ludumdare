@@ -32,7 +32,7 @@ func get_valid_lava_neighbors() -> Array:
 		$CPUParticles2D.emitting = false
 		reset_timer = Timer.new()  # Create a new Timer instance
 		self.add_child(reset_timer)  # Add it as a child to ensure it ticks
-		reset_timer.wait_time = 0.5  # Set the time to wait
+		reset_timer.wait_time = 0.5 + randf_range(0, 0.1)  # Set the time to wait
 		reset_timer.one_shot = true  # Make sure it only ticks once
 		reset_timer.start()  # Start the timer
 		
