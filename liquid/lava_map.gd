@@ -90,20 +90,9 @@ func add_adjacent(loc: Vector2) -> bool:
 	var res = not adjacent_positions.has(loc)
 	adjacent_positions[loc] = true
 	return res
-	#var res = true
-	#if not y_to_adjacent_xs.has(loc.y):
-	#	y_to_adjacent_xs[loc.y] = {}
-	#	res = false
-	#y_to_adjacent_xs[loc.y][loc.x] = true
-	#return res
 	
 func remove_adjacent(loc: Vector2):
 	adjacent_positions.erase(loc)
-	#if y_to_adjacent_xs.has(loc.y):
-	#	var xs = y_to_adjacent_xs[loc.y]
-	#	xs.erase(loc.x)
-	#	if xs.size() == 0:
-	#		y_to_adjacent_xs.erase(loc.y)
 			
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
@@ -144,11 +133,6 @@ func _on_init_timer_timeout():
 
 func _on_spawn_timer_timeout():
 	place_lava(spawn_per_iter)
-	#var to_place = spawn_per_iter
-	#while to_place > 0:
-	#	var place_now = min(chunk, to_place)
-	#	place_lava_noupdate(place_now)
-	#	to_place -= place_now
 		
 func place_lava(to_place: int):
 	var pq = pq_new()
