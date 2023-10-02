@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_y5qqh"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_rtsvt"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_0s8r3"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="4_31b8j"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="5_p60hx"]
 [ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="7_lq3iu"]
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="8_df36p"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="10_bb6n5"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="11_qaswa"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="12_1u44n"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="12_jl5sd"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -56,9 +56,6 @@ layer_0/tile_data = PackedInt32Array(655319, 65536, 1, 655320, 65536, 1, 655321,
 [node name="Player" parent="." instance=ExtResource("3_0s8r3")]
 position = Vector2(-304, 502)
 
-[node name="LavaSpawner" parent="." instance=ExtResource("4_31b8j")]
-position = Vector2(70, 302)
-
 [node name="Goal" parent="." instance=ExtResource("5_p60hx")]
 position = Vector2(904, 551)
 
@@ -92,3 +89,5 @@ shape = SubResource("RectangleShape2D_4ypqu")
 
 [node name="LavaHole" parent="." instance=ExtResource("12_1u44n")]
 position = Vector2(-423, 366)
+
+[node name="LavaMap" parent="." instance=ExtResource("12_jl5sd")]
