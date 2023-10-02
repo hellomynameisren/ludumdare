@@ -42,3 +42,4 @@ position = Vector2(-282, 515)
 position = Vector2(921, 248)
 
 [node name="LavaSpawner" parent="." instance=ExtResource("5_ckdce")]
+number_to_spawn = 30
