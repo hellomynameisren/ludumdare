@@ -46,6 +46,9 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/is_falling"] = true
 		animation_tree["parameters/conditions/is_running"] = false
 		animation_tree["parameters/conditions/is_idle"] = false
+		
+		if global_position.y > 1500:
+			animation_tree["parameters/conditions/is_falling_off"] = true
 	else:
 		animation_tree["parameters/conditions/is_jumping"] = false
 		animation_tree["parameters/conditions/is_falling"] = false
