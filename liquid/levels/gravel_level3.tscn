@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="2_7o1cn"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_i7tko"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_mphc2"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="5_cv3jt"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="6_00rix"]
 [ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="8_cpui1"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="9_0ferf"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="9_n0aqr"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
@@ -50,8 +50,6 @@ layer_0/tile_data = PackedInt32Array(-48, 1, 0, 524246, 65536, 1, 524247, 65536,
 [node name="Player" parent="." instance=ExtResource("3_mphc2")]
 position = Vector2(-253, 477)
 
-[node name="LavaSpawner" parent="." instance=ExtResource("5_cv3jt")]
-
 [node name="Goal" parent="." instance=ExtResource("6_00rix")]
 position = Vector2(984, 502)
 
@@ -72,3 +70,5 @@ position = Vector2(372, 535)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch2/DestroyArea"]
 position = Vector2(287.5, -372.5)
 shape = SubResource("RectangleShape2D_yblwh")
+
+[node name="LavaMap" parent="." instance=ExtResource("9_0ferf")]

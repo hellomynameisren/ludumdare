@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_4d4qo"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_6tqh7"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_628yd"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="5_ckdce"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="6_qngn2"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -41,5 +41,4 @@ position = Vector2(-282, 515)
 [node name="Goal" parent="." instance=ExtResource("4_628yd")]
 position = Vector2(921, 248)
 
-[node name="LavaSpawner" parent="." instance=ExtResource("5_ckdce")]
-number_to_spawn = 30
+[node name="LavaMap" parent="." instance=ExtResource("6_qngn2")]

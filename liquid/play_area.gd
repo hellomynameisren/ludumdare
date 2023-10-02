@@ -23,7 +23,6 @@ func _ready():
 		load("res://liquid/complete_levels/01_intro.tscn"),
 		load("res://liquid/complete_levels/02_climb.tscn"),
 		load("res://liquid/complete_levels/03_crawlers.tscn"),
-		load("res://liquid/levels/chamber_level.tscn"),
 		load("res://liquid/levels/gravel_level3.tscn"),
 		load("res://liquid/levels/race_climb.tscn"),
 		#load("res://liquid/levels/chamber_level2.tscn"),
