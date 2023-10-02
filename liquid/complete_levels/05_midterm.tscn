@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="1_y0omv"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_hpj4a"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_2rrl2"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="3_phpql"]
 [ext_resource type="Script" path="res://liquid/floor_switch.gd" id="5_24k6g"]
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="5_stoeb"]
 [ext_resource type="Texture2D" uid="uid://bdr68vqigmwy1" path="res://assets/button.png" id="6_0m0mc"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="7_agqjb"]
 [ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="9_gnlwy"]
 [ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="11_2qwwr"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="11_syns0"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="12_lguhn"]
 [ext_resource type="PackedScene" uid="uid://dhpbcwd2m14d3" path="res://liquid/thwomp.tscn" id="13_g2mu7"]
 
@@ -54,6 +54,8 @@ point_count = 3
 [node name="00_template" type="Node2D"]
 script = ExtResource("1_qhxn2")
 
+[node name="LavaMap" parent="." instance=ExtResource("11_syns0")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -50
 position = Vector2(303, 433)
@@ -63,9 +65,6 @@ texture = ExtResource("1_y0omv")
 z_index = -1000
 position = Vector2(331, -839)
 texture = SubResource("GradientTexture2D_i3r8k")
-
-[node name="LavaSpawner" parent="." instance=ExtResource("3_phpql")]
-number_to_spawn = 23
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(303, 433)
