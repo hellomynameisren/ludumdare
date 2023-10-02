@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var spawn_per_iter = 20
-@export var chunk = 2
 
 var lava_emitter_scene = preload("res://liquid/lava_emitter.tscn")
 
@@ -86,27 +85,31 @@ func pq_extract_max(pq: Array):
 #func remove_adjacent(loc: Vector2):
 #	adjacent_positions.erase(loc)
 	
-func check_emitter(loc: Vector2):
-	return
-	print("check_emitter " + str(loc))
-	var is_surrounded = true
-	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
-		var loc2 = loc + offset
-		if $TileMap.get_cell_source_id(0, loc2) != 0:
-			is_surrounded = false
-			break
-	if is_surrounded:
-		if not lava_emitters.has(loc):
-			var emitter = lava_emitter_scene.instantiate()
-			lava_emitters[loc] = emitter
-			var global_pos = to_global_position(loc)
-			emitter.global_position = global_pos
-			add_child(emitter)
-			emitter.global_position = global_pos
-	if not is_surrounded:
-		if lava_emitters.has(loc):
-			lava_emitters[loc].queue_free()
-			lava_emitters.erase(loc)
+#func check_emitter(loc: Vector2):
+#	return
+#	print("check_emitter " + str(loc))
+#	var is_surrounded = true
+#	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
+#		var loc2 = loc + offset
+#		if $TileMap.get_cell_source_id(0, loc2) != 0:
+#			is_surrounded = false
+#			break
+#	if is_surrounded:
+#		if not lava_emitters.has(loc):
+#			var emitter = lava_emitter_scene.instantiate()
+#			lava_emitters[loc] = emitter
+#			var global_pos = to_global_position(loc)
+#			emitter.global_position = global_pos
+#			add_child(emitter)
+#			emitter.global_position = global_pos
+#	if not is_surrounded:
+#		if lava_emitters.has(loc):
+#			lava_emitters[loc].queue_free()
+#			lava_emitters.erase(loc)
+			
+func queue_check_loc(loc: Vector2):
+	var tile_loc = $TileMap.local_to_map($TileMap.to_local(loc))
+	pq_insert(global_pq, tile_loc)
 			
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
@@ -119,10 +122,10 @@ func put_lava_at(loc: Vector2) -> Array:
 	emitter.global_position = global_pos
 	
 	# remove_adjacent(loc)
-	check_emitter(loc)
+	#check_emitter(loc)
 	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
 		var loc2 = loc + offset
-		check_emitter(loc2)
+		#check_emitter(loc2)
 		# if add_adjacent(loc2):
 		if $TileMap.get_cell_source_id(0, loc2) != 0:
 			new_neighbors.append(loc2)

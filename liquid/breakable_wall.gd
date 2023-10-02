@@ -24,4 +24,8 @@ func destroy():
 	left_break.get_node("AnimatedSprite2D").flip_h = true
 	get_parent().add_child(left_break)
 	
+	var lava_map = get_parent().get_node("LavaMap")
+	if lava_map:
+		lava_map.queue_check_loc(global_position)
+	
 	queue_free()
