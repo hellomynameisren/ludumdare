@@ -10,6 +10,7 @@ radius = 100.0
 
 [node name="Boulder" type="RigidBody2D" groups=["hazard"]]
 position = Vector2(1200, 0)
+collision_mask = 3
 can_sleep = false
 script = ExtResource("1_fudh2")
 

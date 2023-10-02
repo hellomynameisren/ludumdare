@@ -12,6 +12,7 @@ height = 16
 size = Vector2(16, 16)
 
 [node name="WallBlock" type="StaticBody2D"]
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_frg6q")

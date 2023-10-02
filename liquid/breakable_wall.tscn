@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="BreakableWall" type="StaticBody2D" groups=["breakable"]]
+collision_mask = 3
 script = ExtResource("1_bmgox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,6 +17,7 @@ size = Vector2(16, 16)
 size = Vector2(20, 200)
 
 [node name="Ceiling Hazard" type="RigidBody2D" groups=["hazard"]]
+collision_mask = 3
 script = ExtResource("1_h0b88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

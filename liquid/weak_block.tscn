@@ -10,6 +10,7 @@ points = PackedVector2Array(-8, -8, 8, -8, 0, 8)
 size = Vector2(16, 20)
 
 [node name="WeakBlock" type="RigidBody2D"]
+collision_mask = 3
 script = ExtResource("1_kacg3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

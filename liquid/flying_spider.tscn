@@ -50,6 +50,7 @@ animations = [{
 size = Vector2(36, 16)
 
 [node name="FlyingSpider" type="StaticBody2D" groups=["hazard"]]
+collision_mask = 3
 script = ExtResource("1_oi6r0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

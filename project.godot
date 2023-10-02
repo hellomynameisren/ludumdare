@@ -37,9 +37,14 @@ ui_w={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="main"
+2d_physics/layer_2="lava"
+
 [physics]
 
-common/physics_ticks_per_second=20
+common/physics_ticks_per_second=30
 
 [rendering]
 
