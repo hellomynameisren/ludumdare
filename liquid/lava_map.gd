@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var spawn_per_iter = 20
-@export var chunk = 2
 
 var lava_emitter_scene = preload("res://liquid/lava_emitter.tscn")
 
