@@ -7,6 +7,7 @@ var lava_block_scene = preload("res://liquid/lava_block.tscn")
 var breakable_block_scene = preload("res://liquid/breakable_wall.tscn")
 var gravel_scene = preload("res://liquid/gravel.tscn")
 var weak_scene = preload("res://liquid/weak_block.tscn")
+var dancing_player_scene = preload("res://liquid/dancing_player.tscn")
 
 
 var level_ended = false
@@ -32,11 +33,16 @@ func go_to_you_win_scene():
 		
 		goal.global_position.y = player.global_position.y + 30
 		
-		player.get_node("AnimationTree").set_active(false)
-		player.get_node("AnimationPlayer").play("dance")
+		#player.get_node("AnimationTree").set_active(false)
+		#player.get_node("AnimationPlayer").play("dance")
+		var dancing_player = dancing_player_scene.instantiate()
+		add_child(dancing_player)
+		dancing_player.global_position = player.global_position
+		player.get_node("Sprite2D").visible = false
+		
 		
 		# player.get_node("Camera2D").enabled = false
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(4.0).timeout
 		var playarea = get_parent()
 		if playarea is play_area:
 			playarea.next_level()
