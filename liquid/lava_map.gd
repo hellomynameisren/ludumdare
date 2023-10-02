@@ -3,6 +3,9 @@ extends Node2D
 @export var spawn_per_iter = 20
 @export var chunk = 2
 
+var lava_emitter_scene = preload("res://liquid/lava_emitter.tscn")
+
+
 var adjacent_positions = {}
 
 # var y_to_adjacent_xs = {}
@@ -80,20 +83,46 @@ func add_adjacent(loc: Vector2) -> bool:
 	
 func remove_adjacent(loc: Vector2):
 	adjacent_positions.erase(loc)
+	
+func check_emitter(loc: Vector2):
+	return
+	print("check_emitter " + str(loc))
+	var is_surrounded = true
+	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
+		var loc2 = loc + offset
+		if $TileMap.get_cell_source_id(0, loc2) != 0:
+			is_surrounded = false
+			break
+	if is_surrounded:
+		if not lava_emitters.has(loc):
+			var emitter = lava_emitter_scene.instantiate()
+			lava_emitters[loc] = emitter
+			var global_pos = to_global_position(loc)
+			emitter.global_position = global_pos
+			add_child(emitter)
+			emitter.global_position = global_pos
+	if not is_surrounded:
+		if lava_emitters.has(loc):
+			lava_emitters[loc].queue_free()
+			lava_emitters.erase(loc)
 			
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
 	$TileMap.set_cell(0, loc, 0, Vector2(0, 0))
 	remove_adjacent(loc)
+	check_emitter(loc)
 	for offset in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]:
 		var loc2 = loc + offset
+		check_emitter(loc2)
 		if add_adjacent(loc2):
 			new_neighbors.append(loc2)
 	return new_neighbors
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	world = get_parent()
+	global_position = world.get_node("TileMap").global_position
 	
 	var used_rect = $TileMap.get_used_rect()
 	for x in range(used_rect.position.x, used_rect.position.x + used_rect.size.x):
@@ -144,10 +173,14 @@ func place_lava(to_place: int):
 			to_place -= 1
 			if to_place == 0:
 				return
+				
+func to_global_position(pos: Vector2):
+	var local_pos = $TileMap.map_to_local(pos + Vector2(1/2, 1/2))
+	return $TileMap.to_global(local_pos)
+	
 			
 func is_valid_lava_pos(tile_coord: Vector2):
-	var local_pos = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
-	var position = $TileMap.to_global(local_pos)
+	var position = to_global_position(tile_coord)
 	# Convert the vector to a string to use it as a key in the dictionary
 	# var key = str(position)
 
