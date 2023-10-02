@@ -105,6 +105,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_w"):
 			velocity.y = jump_speed
+			$AudioStreamPlayer2D.play()
 			# $AnimationPlayer.play("jump")
 		else:
 			velocity.y = 0
