@@ -14,17 +14,18 @@ var levels: Array
 
 var level_ix = 0
 
+var current_level_scene = null
 var current_level = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	levels = [
-		load("res://liquid/complete_levels/01_intro.tscn"),
-		load("res://liquid/complete_levels/02_climb.tscn"),
-		load("res://liquid/complete_levels/03_crawlers.tscn"),
-		load("res://liquid/levels/gravel_level3.tscn"),
-		load("res://liquid/levels/race_climb.tscn"),
+		"res://liquid/complete_levels/01_intro.tscn",
+		"res://liquid/complete_levels/02_climb.tscn",
+		"res://liquid/complete_levels/03_crawlers.tscn",
+		"res://liquid/levels/gravel_level3.tscn",
+		"res://liquid/levels/race_climb.tscn",
 		#load("res://liquid/levels/chamber_level2.tscn"),
 		#load("res://liquid/levels/gravel_level2.tscn"),
 		#load("res://liquid/levels/spider_level2.tscn"),
@@ -34,6 +35,7 @@ func _ready():
 		#preload("res://liquid/levels/spider_level.tscn"),
 		#preload("res://liquid/levels/test_level.tscn"),
 	]
+	current_level_scene = load(levels[0])
 	reset_level()
 	# load_level(Level1)
 
@@ -43,12 +45,13 @@ func _process(delta):
 	pass
 	
 func reset_level():
-	load_level(levels[level_ix])
+	load_level(current_level_scene)
 
 func next_level():
 	print("next_level " + str(level_ix))
 	if level_ix < levels.size() - 1:
 		level_ix += 1
+		current_level_scene = load(levels[level_ix])
 		reset_level()
 	else:
 		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
