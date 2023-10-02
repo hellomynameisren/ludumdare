@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://mlo4thieutly"]
+[gd_scene load_steps=22 format=3 uid="uid://mlo4thieutly"]
 
 [ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_ixaai"]
 [ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="2_ek8m3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="6_7l6dm"]
 [ext_resource type="Script" path="res://liquid/Thwomp.gd" id="7_6k2wt"]
 [ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="7_qu7m2"]
+[ext_resource type="Texture2D" uid="uid://dc0ejahwv1ubx" path="res://assets/thwomp.png" id="8_8jxox"]
 [ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="8_f4nty"]
 [ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="9_5mry3"]
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="10_vbmao"]
@@ -22,13 +23,6 @@ colors = PackedColorArray(0.14902, 0.223529, 0.309804, 1)
 gradient = SubResource("Gradient_i8xcg")
 width = 10000
 height = 10000
-
-[sub_resource type="Gradient" id="Gradient_44xy5"]
-offsets = PackedFloat32Array(0, 0.99422)
-colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_08nos"]
-gradient = SubResource("Gradient_44xy5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fm0"]
 size = Vector2(20.2857, 20)
@@ -85,8 +79,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp"]
 position = Vector2(0.5, 0)
@@ -119,8 +112,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp2"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp2"]
 position = Vector2(0.5, 0)
@@ -153,8 +145,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp3"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp3"]
 position = Vector2(0.5, 0)
@@ -187,8 +178,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp4"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp4"]
 position = Vector2(0.5, 0)
@@ -221,8 +211,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp5"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp5"]
 position = Vector2(0.5, 0)
@@ -255,8 +244,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp6"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp6"]
 position = Vector2(0.5, 0)
@@ -289,8 +277,7 @@ script = ExtResource("7_6k2wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Thwomp7"]
 position = Vector2(0.999997, 0.500008)
-scale = Vector2(0.265625, 99)
-texture = SubResource("GradientTexture1D_08nos")
+texture = ExtResource("8_8jxox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp7"]
 position = Vector2(0.5, 0)
