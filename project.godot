@@ -53,7 +53,7 @@ ui_f9={
 
 [physics]
 
-common/physics_ticks_per_second=25
+common/physics_ticks_per_second=20
 common/max_physics_steps_per_frame=5
 
 [rendering]
