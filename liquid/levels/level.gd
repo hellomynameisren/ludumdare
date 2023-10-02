@@ -32,9 +32,6 @@ func go_to_you_win_scene():
 		
 		goal.global_position.y = player.global_position.y + 30
 		
-		player.get_node("AnimationTree").set_active(false)
-		player.get_node("AnimationPlayer").play("dance")
-		
 		# player.get_node("Camera2D").enabled = false
 		await get_tree().create_timer(2.0).timeout
 		var playarea = get_parent()
