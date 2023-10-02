@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gnoabb1cmetm"]
+[gd_scene load_steps=6 format=3 uid="uid://gnoabb1cmetm"]
 
 [ext_resource type="PackedScene" uid="uid://dlixio64kyfw6" path="res://liquid/dancing_player.tscn" id="1_fdl2e"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="2_3h5at"]
+[ext_resource type="Texture2D" uid="uid://csuceatkitvwy" path="res://assets/youwin_new.png" id="3_0new4"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -15,6 +16,7 @@ height = 10000
 [node name="YouWin" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 430.0
 offset_top = 143.0
 offset_right = 751.0
@@ -44,3 +46,8 @@ text = "A game by
 Ren Spears
 Jessica Taylor"
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(600, 179)
+scale = Vector2(0.653605, 0.653605)
+texture = ExtResource("3_0new4")
