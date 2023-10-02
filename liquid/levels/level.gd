@@ -28,7 +28,7 @@ func go_to_you_win_scene():
 		var goal = get_node("Goal")
 		player.z_index = 300
 		goal.z_index = 200
-		goal.global_position.x = player.global_position.x + 50
+		goal.global_position.x = player.global_position.x + goal.scale.x * 50
 		
 		goal.global_position.y = player.global_position.y + 30
 		
