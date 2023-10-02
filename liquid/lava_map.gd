@@ -16,6 +16,8 @@ var world
 
 var lava_emitters = {}
 
+var global_pq: Array = []
+
 func pq_key(val: Vector2):
 	return val.y
 
@@ -116,12 +118,14 @@ func put_lava_at(loc: Vector2) -> Array:
 		check_emitter(loc2)
 		if add_adjacent(loc2):
 			new_neighbors.append(loc2)
+			pq_insert(global_pq, loc2)
 	return new_neighbors
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	world = get_parent()
+	global_pq = pq_new()
 	global_position = world.get_node("TileMap").global_position
 	
 	#var used_rect = $TileMap.get_used_rect()
@@ -147,28 +151,35 @@ func _on_spawn_timer_timeout():
 	place_lava(spawn_per_iter)
 		
 func place_lava(to_place: int):
-	var pq = pq_new()
-	for pos in adjacent_positions:
-		if is_valid_lava_pos(pos):
-			pq_insert(pq, pos)
-	while true:
-		var lowest = []
-		while pq_size(pq) > 0:
-			if lowest.size() == 0 or pq_max(pq).y == lowest[lowest.size()-1].y:
-				lowest.append(pq_extract_max(pq))
-			else:
-				break
-		if lowest.size() == 0:
-			return
-		lowest.shuffle()
-		while lowest.size() > 0:
-			var place_at = lowest.pop_back()
-			for neighbor in put_lava_at(place_at):
-				if is_valid_lava_pos(neighbor):
-					pq_insert(pq, neighbor)
+	while pq_size(global_pq) > 0:
+		var try_pos = pq_extract_max(global_pq)
+		if is_valid_lava_pos(try_pos):
+			put_lava_at(try_pos)
 			to_place -= 1
 			if to_place == 0:
 				return
+	#var pq = pq_new()
+	#for pos in adjacent_positions:
+	#	if is_valid_lava_pos(pos):
+	#		pq_insert(pq, pos)
+	#while true:
+	#	var lowest = []
+	#	while pq_size(pq) > 0:
+	#		if lowest.size() == 0 or pq_max(pq).y == lowest[lowest.size()-1].y:
+	#			lowest.append(pq_extract_max(pq))
+	#		else:
+	#			break
+	#	if lowest.size() == 0:
+	#		return
+	#	lowest.shuffle()
+	#	while lowest.size() > 0:
+	#		var place_at = lowest.pop_back()
+	#		for neighbor in put_lava_at(place_at):
+	#			if is_valid_lava_pos(neighbor):
+	#				pq_insert(pq, neighbor)
+	#		to_place -= 1
+	#		if to_place == 0:
+	#			return
 				
 func to_global_position(pos: Vector2):
 	var local_pos = $TileMap.map_to_local(pos + Vector2(1/2, 1/2))
