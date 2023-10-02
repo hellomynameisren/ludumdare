@@ -140,15 +140,18 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 	if global_position.y > 3000:
+		AudioStreamPlayer2D2.play()
 		get_parent().go_to_game_over_scene()
 	
 	# Check for lava collision
 	for idx in get_slide_collision_count():
 		var body = get_slide_collision(idx)
 		if body.get_collider() is lava_block:
+			AudioStreamPlayer2D2.play()
 			get_parent().go_to_game_over_scene()
 		## in hazard group
 		if body.get_collider().is_in_group("hazard"):
+			AudioStreamPlayer2D2.play()
 			get_parent().go_to_game_over_scene()
 		if body.get_collider().is_in_group("thwomp"):
 			velocity.y *= 2

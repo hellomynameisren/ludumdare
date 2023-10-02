@@ -16,6 +16,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		if not depressed:
+			$AudioStreamPlayer2D2.play()
 		depressed = true
 		$Sprite2D.frame = 1
 		for child in get_children():

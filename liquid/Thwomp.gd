@@ -35,6 +35,7 @@ func _on_body_entered(body):
 		is_falling = false
 		gravity_scale = 0  # Stop falling
 		# Wait for a delay before rising
+		$AudioStreamPlayer2D2.play()
 		await get_tree().create_timer(delay_before_rise).timeout
 		start_rise()
 
