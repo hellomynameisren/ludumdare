@@ -8,15 +8,11 @@ class_name play_area
 # var Level2 = preload("res://liquid/levels/test_level2.tscn")
 # var Level3 = preload("res://liquid/levels/test_level3.tscn")
 var levels = [
-	preload("res://liquid/complete_levels/01_intro.tscn"),
-	preload("res://liquid/complete_levels/02_climb.tscn"),
-	preload("res://liquid/complete_levels/03_crawlers.tscn"),
-	preload("res://liquid/complete_levels/04_skate.tscn"),
-	#preload("res://liquid/levels/chamber_level2.tscn"),
-	#preload("res://liquid/levels/gravel_level2.tscn"),
-	#preload("res://liquid/levels/spider_level2.tscn"),
-	#preload("res://liquid/levels/falling_level.tscn"),
-	#preload("res://liquid/levels/race_level2.tscn"),
+	preload("res://liquid/levels/chamber_level2.tscn"),
+	preload("res://liquid/levels/gravel_level2.tscn"),
+	preload("res://liquid/levels/spider_level2.tscn"),
+	preload("res://liquid/levels/falling_level.tscn"),
+	preload("res://liquid/levels/race_level2.tscn"),
 	#preload("res://liquid/levels/gravel_level.tscn"),
 	#preload("res://liquid/levels/spider_level.tscn"),
 	#preload("res://liquid/levels/test_level.tscn"),
