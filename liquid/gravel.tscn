@@ -1,18 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5xdy4o7h0wh"]
+[gd_scene load_steps=4 format=3 uid="uid://x5xdy4o7h0wh"]
 
 [ext_resource type="Script" path="res://liquid/gravel.gd" id="1_l1f2e"]
+[ext_resource type="Texture2D" uid="uid://fhvmn4h37ee2" path="res://assets/gravel.png" id="2_ppwfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4674s"]
 size = Vector2(16, 16)
-
-[sub_resource type="Gradient" id="Gradient_x4rjo"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.509804, 0.509804, 0.509804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_irj3k"]
-gradient = SubResource("Gradient_x4rjo")
-width = 16
-height = 16
 
 [node name="Gravel" type="StaticBody2D"]
 collision_mask = 3
@@ -22,7 +14,7 @@ script = ExtResource("1_l1f2e")
 shape = SubResource("RectangleShape2D_4674s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_irj3k")
+texture = ExtResource("2_ppwfi")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
