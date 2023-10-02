@@ -59,8 +59,7 @@ func update_animation_parameters():
 		else:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_running"] = true
-	if not level_ended():
-		$Sprite2D.flip_h = velocity.x < 0
+	$Sprite2D.flip_h = velocity.x < 0
 	
 	
 func level_ended():
