@@ -182,6 +182,7 @@ position = Vector2(600, 125)
 position = Vector2(-412, 548)
 
 [node name="LavaMap" parent="." instance=ExtResource("12_720ow")]
+spawn_per_iter = 18
 
 [connection signal="body_entered" from="FloorSwitch" to="FloorSwitch" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="FloorSwitch2" to="FloorSwitch2" method="_on_body_entered" flags=18]
