@@ -55,6 +55,7 @@ func _process(delta):
 
 func replace_tiles():
 	var tilemap = get_node("TileMap")
+	var lava_map = get_node("LavaMap")
 	if not tilemap:
 		return
 	var used_rect = tilemap.get_used_rect()
@@ -72,12 +73,15 @@ func replace_tiles():
 			#	self.add_child(wall_instance)
 			#	$TileMap.set_cell(0, tile_coord, -1)
 			if tile_id == 1:
-				# print("spawn lava at " + str(position))
-				var lava_instance = lava_block_scene.instantiate()
-				lava_instance.global_position = global_pos
-				self.add_child(lava_instance)
-				lava_instance.global_position = global_pos
-				tilemap.set_cell(0, tile_coord, -1)
+				if lava_map:
+					lava_map.put_lava_at(tile_coord)
+				else:
+					# print("spawn lava at " + str(position))
+					var lava_instance = lava_block_scene.instantiate()
+					lava_instance.global_position = global_pos
+					self.add_child(lava_instance)
+					lava_instance.global_position = global_pos
+					tilemap.set_cell(0, tile_coord, -1)
 			if tile_id == 2:
 				var frame = tilemap.get_cell_tile_data(0, tile_coord).get_custom_data_by_layer_id(0)
 				var breakable_instance = breakable_block_scene.instantiate()

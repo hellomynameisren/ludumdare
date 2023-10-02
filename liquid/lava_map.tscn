@@ -9,7 +9,6 @@ script = ExtResource("1_0yy3y")
 [node name="TileMap" type="TileMap" parent="." groups=["hazard"]]
 tile_set = ExtResource("2_p4co3")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.2

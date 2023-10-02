@@ -124,14 +124,14 @@ func _ready():
 	world = get_parent()
 	global_position = world.get_node("TileMap").global_position
 	
-	var used_rect = $TileMap.get_used_rect()
-	for x in range(used_rect.position.x, used_rect.position.x + used_rect.size.x):
-		for y in range(used_rect.position.y, used_rect.position.y + used_rect.size.y):
-			var tile_coord = Vector2(x, y)
-			var tile_id = $TileMap.get_cell_source_id(0, tile_coord)
-			if tile_id == 0: # lava
+	#var used_rect = $TileMap.get_used_rect()
+	#for x in range(used_rect.position.x, used_rect.position.x + used_rect.size.x):
+	#	for y in range(used_rect.position.y, used_rect.position.y + used_rect.size.y):
+	#		var tile_coord = Vector2(x, y)
+	#		var tile_id = $TileMap.get_cell_source_id(0, tile_coord)
+	#		if tile_id == 0: # lava
 				# put_lava_at(tile_coord)
-				print("found lava at " + str(tile_coord))
+	#			print("found lava at " + str(tile_coord))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -140,10 +140,6 @@ func _process(delta):
 
 
 func _on_init_timer_timeout():
-	print("put lava at")
-	print($TileMap.get_cell_source_id(0, Vector2(0, 0)))
-	put_lava_at(Vector2(0, 0))
-	print($TileMap.get_cell_source_id(0, Vector2(0, 0)))
 	$SpawnTimer.start()
 
 
