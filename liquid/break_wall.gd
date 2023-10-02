@@ -1,6 +1,4 @@
-extends Area2D
-
-class_name destroy_area
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +11,6 @@ func _process(delta):
 	pass
 
 
-func destroy_in_area():
-	for body in get_overlapping_bodies():
-		if body.is_in_group("breakable"):
-			body.destroy()
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()
+

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8hlo3akfq5eb"]
+
+[ext_resource type="Script" path="res://liquid/break_wall.gd" id="1_hyemv"]
+[ext_resource type="Texture2D" uid="uid://k4j7el7b0qjd" path="res://assets/breakall-right-sheet.png" id="1_tgmah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycaua"]
+atlas = ExtResource("1_tgmah")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek1o"]
+atlas = ExtResource("1_tgmah")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwnjp"]
+atlas = ExtResource("1_tgmah")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv8tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycaua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwnjp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BreakWall" type="Node2D"]
+script = ExtResource("1_hyemv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gv8tk")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
