@@ -48,12 +48,24 @@ func _process(delta):
 	
 func reset_level():
 	load_level(current_level_scene)
+	
+var did_start_load = false
+
+func start_load_next_level():
+	if level_ix < levels.size() - 1:
+		var next_scene = levels[level_ix + 1]
+		ResourceLoader.load_threaded_request(next_scene)
+		did_start_load = true
+	
 
 func next_level():
-	print("next_level " + str(level_ix))
 	if level_ix < levels.size() - 1:
 		level_ix += 1
-		current_level_scene = load(levels[level_ix])
+		if did_start_load:
+			current_level_scene = ResourceLoader.load_threaded_get(levels[level_ix])
+		else:
+			current_level_scene = load(levels[level_ix])
+		did_start_load = false
 		reset_level()
 	else:
 		get_tree().change_scene_to_file("res://liquid/you_win.tscn")
