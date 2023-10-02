@@ -40,6 +40,10 @@ func _ready():
 	current_level_scene = load(levels[0])
 	reset_level()
 	# load_level(Level1)
+	
+func _input(event):
+	if event.is_action_pressed('ui_f9'):
+		next_level()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
