@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://bgyexa7lvrxca"]
+[gd_scene load_steps=40 format=3 uid="uid://bgyexa7lvrxca"]
 
 [ext_resource type="Script" path="res://liquid/player.gd" id="1_t13u5"]
+[ext_resource type="AudioStream" uid="uid://ls2ty33y53jl" path="res://assets/jump.wav" id="3_agfis"]
 [ext_resource type="Texture2D" uid="uid://c65wef1t3imep" path="res://assets/farmerboy/farmerboy-combined.png" id="3_x4htj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro6jj"]
@@ -311,3 +312,6 @@ parameters/conditions/is_falling_off = false
 parameters/conditions/is_idle = false
 parameters/conditions/is_jumping = false
 parameters/conditions/is_running = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_agfis")
