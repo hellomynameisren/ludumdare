@@ -71,20 +71,7 @@ func pq_extract_max(pq: Array):
 	return root
 		
 
-var heaplist
-var currentSize
 
-func percUp(i):
-	while floor(i / 2) > 0:
-		if heaplist[i][0] < heaplist[floor(i / 2)][0]:
-			var tmp = heaplist[floor(i / 2)]
-			heaplist[floor(i / 2)] = heaplist[i]
-			heaplist[i] = tmp
-		i = floor(i / 2)
-
-func insert(k):
-	heaplist.append(k)
-	currentSize += 1
 
 func add_adjacent(loc: Vector2) -> bool:
 	var res = not adjacent_positions.has(loc)
