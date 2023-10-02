@@ -3,11 +3,15 @@ extends Node2D
 @export var spawn_per_iter = 20
 @export var chunk = 2
 
-var y_to_adjacent_xs = {}
+var adjacent_positions = {}
+
+# var y_to_adjacent_xs = {}
 
 var lava_width = 16
 
 var world
+
+var lava_emitters = {}
 
 func pq_key(val: Vector2):
 	return val.y
@@ -83,19 +87,23 @@ func insert(k):
 	currentSize += 1
 
 func add_adjacent(loc: Vector2) -> bool:
-	var res = true
-	if not y_to_adjacent_xs.has(loc.y):
-		y_to_adjacent_xs[loc.y] = {}
-		res = false
-	y_to_adjacent_xs[loc.y][loc.x] = true
+	var res = not adjacent_positions.has(loc)
+	adjacent_positions[loc] = true
 	return res
+	#var res = true
+	#if not y_to_adjacent_xs.has(loc.y):
+	#	y_to_adjacent_xs[loc.y] = {}
+	#	res = false
+	#y_to_adjacent_xs[loc.y][loc.x] = true
+	#return res
 	
 func remove_adjacent(loc: Vector2):
-	if y_to_adjacent_xs.has(loc.y):
-		var xs = y_to_adjacent_xs[loc.y]
-		xs.erase(loc.x)
-		if xs.size() == 0:
-			y_to_adjacent_xs.erase(loc.y)
+	adjacent_positions.erase(loc)
+	#if y_to_adjacent_xs.has(loc.y):
+	#	var xs = y_to_adjacent_xs[loc.y]
+	#	xs.erase(loc.x)
+	#	if xs.size() == 0:
+	#		y_to_adjacent_xs.erase(loc.y)
 			
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
@@ -144,11 +152,9 @@ func _on_spawn_timer_timeout():
 		
 func place_lava(to_place: int):
 	var pq = pq_new()
-	for y in y_to_adjacent_xs:
-		for x in y_to_adjacent_xs[y]:
-			var pos = Vector2(x, y)
-			if is_valid_lava_pos(pos):
-				pq_insert(pq, Vector2(x, y))
+	for pos in adjacent_positions:
+		if is_valid_lava_pos(pos):
+			pq_insert(pq, pos)
 	while true:
 		var lowest = []
 		while pq_size(pq) > 0:
@@ -167,25 +173,6 @@ func place_lava(to_place: int):
 			to_place -= 1
 			if to_place == 0:
 				return
-
-func place_lava_noupdate(to_place: int):
-	var adj_ys = []
-	for y in y_to_adjacent_xs:
-		adj_ys.append(y)
-	adj_ys.sort()
-	adj_ys.reverse()
-	for y in adj_ys:
-		var adj_xs = []
-		for x in y_to_adjacent_xs[y]:
-			adj_xs.append(x)
-		adj_xs.shuffle()
-		for x in adj_xs:
-			var pos = Vector2(x, y)
-			if is_valid_lava_pos(pos):
-				put_lava_at(pos)
-				to_place -= 1
-				if to_place == 0:
-					return
 			
 func is_valid_lava_pos(tile_coord: Vector2):
 	var local_pos = $TileMap.map_to_local(tile_coord + Vector2(1/2, 1/2))
