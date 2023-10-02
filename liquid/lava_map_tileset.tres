@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://rofcd5vk18s0"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://d1s15rcsdoepo"]
 
 [ext_resource type="Texture2D" uid="uid://dfk42c8cvs70j" path="res://assets/lava_tile.png" id="1_7355r"]
 [ext_resource type="Texture2D" uid="uid://dc2fml2oh7mtd" path="res://assets/empty_lava.png" id="2_lo5ps"]

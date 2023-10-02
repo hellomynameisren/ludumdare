@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://de76ubwjsb00m" path="res://liquid/floor_switch.tscn" id="10_bb6n5"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="11_qaswa"]
 [ext_resource type="PackedScene" uid="uid://baep8bkn4mli2" path="res://liquid/lava_hole.tscn" id="12_1u44n"]
-[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="12_jl5sd"]
+[ext_resource type="PackedScene" path="res://liquid/lava_map.tscn" id="12_jl5sd"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
