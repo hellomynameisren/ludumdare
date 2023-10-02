@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnh6dxueg7wdc"]
+
+[ext_resource type="Script" path="res://liquid/lava_map.gd" id="1_0yy3y"]
+[ext_resource type="TileSet" uid="uid://rofcd5vk18s0" path="res://liquid/lava_map_tileset.tres" id="2_p4co3"]
+
+[node name="LavaMap" type="Node2D"]
+script = ExtResource("1_0yy3y")
+
+[node name="TileMap" type="TileMap" parent="." groups=["hazard"]]
+tile_set = ExtResource("2_p4co3")
+format = 2
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="InitTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="InitTimer" to="." method="_on_init_timer_timeout"]

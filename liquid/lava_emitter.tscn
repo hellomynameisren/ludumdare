@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4umh56kxt56q"]
+
+[ext_resource type="Script" path="res://liquid/lava_emitter.gd" id="1_nn8j6"]
+
+[node name="LavaEmitter" type="Node2D"]
+script = ExtResource("1_nn8j6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+speed_scale = 6.82
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 5)
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 3.8
+scale_amount_max = 11.7
+color = Color(0.603922, 0.305882, 0.305882, 1)

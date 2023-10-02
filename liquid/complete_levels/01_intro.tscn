@@ -5,8 +5,8 @@
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_i3ddv"]
 [ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_3qn6h"]
 [ext_resource type="PackedScene" uid="uid://bokkqyrjki4o" path="res://liquid/goal.tscn" id="4_ilb7m"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="5_b38xv"]
 [ext_resource type="FontFile" uid="uid://dx116tosd73ui" path="res://assets/adrip1.ttf" id="7_b87vb"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="7_qi3qi"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -44,9 +44,6 @@ layer_0/tile_data = PackedInt32Array(589774, 0, 0, 655310, 0, 0, 720846, 0, 0, 7
 [node name="Goal" parent="." instance=ExtResource("4_ilb7m")]
 position = Vector2(1120, 400)
 
-[node name="LavaSpawner" parent="." instance=ExtResource("5_b38xv")]
-position = Vector2(-1, -1)
-
 [node name="Label" type="Label" parent="."]
 offset_left = -110.0
 offset_top = 408.0
@@ -69,3 +66,5 @@ horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("3_3qn6h")]
 position = Vector2(-450, 500)
+
+[node name="LavaMap" parent="." instance=ExtResource("7_qi3qi")]
