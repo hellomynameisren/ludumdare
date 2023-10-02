@@ -114,12 +114,13 @@ func queue_check_loc(loc: Vector2):
 func put_lava_at(loc: Vector2) -> Array:
 	var new_neighbors = []
 	$TileMap.set_cell(0, loc, 0, Vector2(0, 0))
-	var emitter = lava_emitter_scene.instantiate()
-	lava_emitters[loc] = emitter
-	var global_pos = to_global_position(loc)
-	emitter.global_position = global_pos
-	add_child(emitter)
-	emitter.global_position = global_pos
+	if OS.get_name() != "Web":
+		var emitter = lava_emitter_scene.instantiate()
+		lava_emitters[loc] = emitter
+		var global_pos = to_global_position(loc)
+		emitter.global_position = global_pos
+		add_child(emitter)
+		emitter.global_position = global_pos
 	
 	# remove_adjacent(loc)
 	#check_emitter(loc)
