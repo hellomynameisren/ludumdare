@@ -65,7 +65,7 @@ position = Vector2(331, -839)
 texture = SubResource("GradientTexture2D_i3r8k")
 
 [node name="LavaSpawner" parent="." instance=ExtResource("3_phpql")]
-number_to_spawn = 25
+number_to_spawn = 23
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(303, 433)
@@ -89,7 +89,7 @@ scale = Vector2(5.67442, 9.00441)
 texture = SubResource("GradientTexture2D_bjo0s")
 
 [node name="Player" parent="." instance=ExtResource("3_2rrl2")]
-position = Vector2(88, 494)
+position = Vector2(139, 499)
 
 [node name="FloorSwitch2" type="Area2D" parent="."]
 position = Vector2(950, 100)
