@@ -10,6 +10,10 @@ var last_key_dir = 0 # 0: No key, -1: Left key (ui_a), 1: Right key (ui_d)
 
 var animation_tree: AnimationTree
 
+var wall_jump_grace_period = 0.25  # time in seconds
+var can_wall_jump = false
+var wall_jump_timer: Timer
+
 func _on_Animation_finished(animation_name: String):
 	print("Finished Animation: ", animation_name)
 
@@ -95,20 +99,25 @@ func _physics_process(delta):
 			velocity.y = 0
 	else:
 		velocity.y += gravity * delta
+		
+	if (not can_wall_jump) and is_on_wall():
+		start_wall_jump_grace_period()
 
 	# Wall Jump Logic
-	if is_on_wall() and Input.is_action_just_pressed("ui_w"):
+	if can_wall_jump and Input.is_action_just_pressed("ui_w"):
 		# If the player is touching the left wall, didn't jump off a left wall last time, and the last key pressed wasn't left
 		if velocity.x < 0 and last_wall_jump_dir != -1 and last_key_dir != -1:
 			velocity.y = jump_speed
 			velocity.x = speed
 			last_wall_jump_dir = -1
+			can_wall_jump = false
 			# $AnimationPlayer.play("jump")
 		# If the player is touching the right wall, didn't jump off a right wall last time, and the last key pressed wasn't right
 		elif velocity.x > 0 and last_wall_jump_dir != 1 and last_key_dir != 1:
 			velocity.y = jump_speed
 			velocity.x = -speed
 			last_wall_jump_dir = 1
+			can_wall_jump = false
 			# $AnimationPlayer.play("jump")
 
 	# Reset last_wall_jump_dir when touching the ground or opposite wall
@@ -140,4 +149,22 @@ func _physics_process(delta):
 			get_parent().go_to_you_win_scene()
 			
 	update_animation_parameters()
+	
+func start_wall_jump_grace_period():
+	can_wall_jump = true
+	# Create a new Timer instance
+	wall_jump_timer = Timer.new()
+	# Set the timer's wait time to your grace period
+	wall_jump_timer.wait_time = wall_jump_grace_period
+	# Make sure the timer will stop after the timeout
+	wall_jump_timer.one_shot = true
+	wall_jump_timer.connect("timeout", self._on_wall_jump_grace_period_timeout)
+	# Add the timer as a child to ensure it ticks
+	self.add_child(wall_jump_timer)
+	# Start the timer
+	wall_jump_timer.start()
+
+func _on_wall_jump_grace_period_timeout():
+	wall_jump_timer.queue_free()
+	can_wall_jump = false
 			
