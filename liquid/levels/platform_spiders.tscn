@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://jah1g3lbwvuw"]
+
+[ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_ikj1w"]
+[ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="1_lmpoi"]
+[ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_pwiwq"]
+[ext_resource type="PackedScene" uid="uid://bgyexa7lvrxca" path="res://liquid/player.tscn" id="3_7xsuv"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="4_2kd4w"]
+[ext_resource type="PackedScene" uid="uid://bhoptg1vuamy5" path="res://liquid/moving_platform.tscn" id="5_1cpsr"]
+[ext_resource type="PackedScene" uid="uid://nd1iag724mnm" path="res://liquid/flying_spider_follow.tscn" id="7_nfmjt"]
+[ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="8_0w3x2"]
+
+[sub_resource type="Gradient" id="Gradient_i8xcg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.14902, 0.223529, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3r8k"]
+gradient = SubResource("Gradient_i8xcg")
+width = 10000
+height = 10000
+
+[sub_resource type="Curve2D" id="Curve2D_7qht1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -121, -11, 0, 0, 0, 0, -133.051, -9.68892, 0, 0, 0, 0, -217.48, -10.7029, 0, 0, 0, 0, -365, -12, 0, 0, 0, 0, -121, -11)
+}
+point_count = 5
+
+[node name="platform_spiders" type="Node2D"]
+script = ExtResource("1_ikj1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -50
+position = Vector2(303, 433)
+texture = ExtResource("1_lmpoi")
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(303, 433)
+texture = SubResource("GradientTexture2D_i3r8k")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(303, 433)
+tile_set = ExtResource("2_pwiwq")
+format = 2
+layer_0/tile_data = PackedInt32Array(393176, 65536, 1, 393177, 65536, 1, 393178, 65536, 1, 393179, 65536, 1, 393180, 65536, 1, 393181, 65536, 1, 393182, 65536, 1, 393183, 65536, 1, 393184, 65536, 1, 393185, 65536, 1, 393186, 65536, 1, 393187, 65536, 1, 393188, 65536, 1, 458725, 1, 0, 458726, 1, 0, 458727, 1, 0, 458728, 1, 0, 458729, 1, 0, 458730, 1, 0, 458731, 1, 0, 458732, 1, 0, 458733, 1, 0, 458734, 1, 0, 458735, 1, 0, 458736, 1, 0, 458737, 1, 0, 458738, 1, 0, 458739, 1, 0, 458740, 1, 0, 458741, 1, 0, 458742, 1, 0, 458743, 1, 0, 458744, 1, 0, 458745, 1, 0, 458746, 1, 0, 458747, 1, 0, 458748, 1, 0, 458749, 1, 0, 458750, 1, 0, 458751, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 393241, 1, 0, 393242, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_7xsuv")]
+position = Vector2(-306, 454)
+
+[node name="LavaMap" parent="." instance=ExtResource("4_2kd4w")]
+
+[node name="Moving Platform" parent="." instance=ExtResource("5_1cpsr")]
+position = Vector2(-95, 518)
+scale = Vector2(1.68, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(375, 505)
+curve = SubResource("Curve2D_7qht1")
+
+[node name="FlyingSpiderFollow" parent="Path2D" instance=ExtResource("7_nfmjt")]
+position = Vector2(-121.043, -11.0002)
+rotation = -3.13749
+progress = 488.004
+
+[node name="FlyingSpider" parent="Path2D/FlyingSpiderFollow" instance=ExtResource("8_0w3x2")]
+position = Vector2(-1.99194, 2.00824)
+rotation = 3.13749
