@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ludum Dare"
-run/main_scene="res://liquid/complete_levels/04_skate.tscn"
+run/main_scene="res://liquid/complete_levels/05_midterm.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
