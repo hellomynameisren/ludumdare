@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0kl8yypxepv6"]
+
+[ext_resource type="Script" path="res://liquid/music_player.gd" id="1_25sw6"]
+[ext_resource type="AudioStream" uid="uid://c4ifdnps64sxw" path="res://assets/lava_run.mp3" id="1_pc22v"]
+
+[node name="MusicPlayer" type="Node2D"]
+script = ExtResource("1_25sw6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_pc22v")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
