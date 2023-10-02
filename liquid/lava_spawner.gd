@@ -11,7 +11,7 @@ var CHECK_INTERVAL = 1.0  # seconds
 var world: Node2D
 
 # Number of blocks to spawn
-var number_to_spawn = 10
+var number_to_spawn = 20
 
 # Spawn area boundaries (for a 1280x720 screen as an example)
 var spawn_min = Vector2(0, 0)
