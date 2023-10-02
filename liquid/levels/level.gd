@@ -42,7 +42,7 @@ func go_to_you_win_scene():
 		
 		
 		# player.get_node("Camera2D").enabled = false
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(4.5).timeout
 		var playarea = get_parent()
 		if playarea is play_area:
 			playarea.next_level()
