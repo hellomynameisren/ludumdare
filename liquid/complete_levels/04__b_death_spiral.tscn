@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://mlo4thieutly"]
+[gd_scene load_steps=31 format=3 uid="uid://mlo4thieutly"]
 
 [ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_ixaai"]
 [ext_resource type="Texture2D" uid="uid://d272vciksvd6h" path="res://assets/levels/level_v1.png" id="2_ek8m3"]
@@ -15,8 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://ccpb6r8nmhggt" path="res://liquid/lava_block_static.tscn" id="9_mjldg"]
 [ext_resource type="PackedScene" uid="uid://rba83x17eh0s" path="res://liquid/flying_spider.tscn" id="10_vbmao"]
 [ext_resource type="Script" path="res://liquid/floor_switch.gd" id="11_0hyok"]
+[ext_resource type="AudioStream" uid="uid://d1jj1sxaui8tm" path="res://assets/thud.wav" id="12_ofdnk"]
 [ext_resource type="Texture2D" uid="uid://bdr68vqigmwy1" path="res://assets/button.png" id="12_xsyal"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="13_0y0tl"]
+[ext_resource type="AudioStream" uid="uid://bywxn4au6wiu2" path="res://assets/button.wav" id="19_cx7gu"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -120,6 +122,9 @@ position = Vector2(-945, -126.75)
 shape = SubResource("RectangleShape2D_8e8jw")
 debug_color = Color(0.992157, 0, 0.266667, 0.419608)
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Boulder"]
+stream = ExtResource("12_ofdnk")
+
 [node name="Thwomp" type="RigidBody2D" parent="."]
 position = Vector2(-610, 1330)
 collision_mask = 3
@@ -152,6 +157,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp"]
+stream = ExtResource("12_ofdnk")
 
 [node name="Thwomp2" type="RigidBody2D" parent="."]
 position = Vector2(-445, 1330)
@@ -186,6 +194,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp2/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp2"]
+stream = ExtResource("12_ofdnk")
+
 [node name="Thwomp3" type="RigidBody2D" parent="."]
 position = Vector2(-280, 1330)
 collision_mask = 3
@@ -218,6 +229,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp3/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp3"]
+stream = ExtResource("12_ofdnk")
 
 [node name="Thwomp4" type="RigidBody2D" parent="."]
 position = Vector2(-120, 1330)
@@ -252,6 +266,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp4/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp4"]
+stream = ExtResource("12_ofdnk")
+
 [node name="Thwomp5" type="RigidBody2D" parent="."]
 position = Vector2(40, 1330)
 collision_mask = 3
@@ -284,6 +301,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp5/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp5"]
+stream = ExtResource("12_ofdnk")
 
 [node name="Thwomp6" type="RigidBody2D" parent="."]
 position = Vector2(200, 1330)
@@ -318,6 +338,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp6/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp6"]
+stream = ExtResource("12_ofdnk")
+
 [node name="Thwomp7" type="RigidBody2D" parent="."]
 position = Vector2(360, 1330)
 collision_mask = 3
@@ -350,6 +373,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thwomp7/StaticBody2D" groups=["hazard"]]
 shape = SubResource("RectangleShape2D_u5jum")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Thwomp7"]
+stream = ExtResource("12_ofdnk")
 
 [node name="Ceiling Hazard3" parent="." instance=ExtResource("8_f4nty")]
 position = Vector2(60, 58)
@@ -393,6 +419,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch4"]
+stream = ExtResource("19_cx7gu")
+
 [node name="FloorSwitch5" type="Area2D" parent="."]
 position = Vector2(265, 100)
 rotation = -1.5708
@@ -415,6 +444,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch5/DestroyArea"]
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch5"]
+stream = ExtResource("19_cx7gu")
 
 [node name="FloorSwitch6" type="Area2D" parent="."]
 position = Vector2(105, 100)
@@ -439,6 +471,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch6"]
+stream = ExtResource("19_cx7gu")
+
 [node name="FloorSwitch7" type="Area2D" parent="."]
 position = Vector2(-55, 100)
 rotation = -1.5708
@@ -461,6 +496,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch7/DestroyArea"]
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch7"]
+stream = ExtResource("19_cx7gu")
 
 [node name="FloorSwitch8" type="Area2D" parent="."]
 position = Vector2(-215, 100)
@@ -485,6 +523,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 position = Vector2(-128.031, -224.5)
 shape = SubResource("RectangleShape2D_43tdk")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch8"]
+stream = ExtResource("19_cx7gu")
+
 [node name="FloorSwitch9" type="Area2D" parent="."]
 position = Vector2(-375, 100)
 rotation = -1.5708
@@ -508,6 +549,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch9"]
+stream = ExtResource("19_cx7gu")
+
 [node name="FloorSwitch10" type="Area2D" parent="."]
 position = Vector2(-535, 100)
 rotation = -1.5708
@@ -530,6 +574,9 @@ shape = SubResource("RectangleShape2D_as0tk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitch10/DestroyArea"]
 position = Vector2(-128.031, -146.688)
 shape = SubResource("RectangleShape2D_4hhrg")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch10"]
+stream = ExtResource("19_cx7gu")
 
 [connection signal="body_entered" from="Thwomp/Area2D" to="Thwomp" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="Thwomp2/Area2D" to="Thwomp2" method="_on_body_entered" flags=18]

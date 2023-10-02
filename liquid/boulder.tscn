@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xlouclsit2xv"]
+[gd_scene load_steps=6 format=3 uid="uid://xlouclsit2xv"]
 
 [ext_resource type="Script" path="res://liquid/Boulder.gd" id="1_fudh2"]
 [ext_resource type="Texture2D" uid="uid://caaxxbl2rgc2w" path="res://assets/boulder.png" id="2_ahugw"]
+[ext_resource type="AudioStream" uid="uid://d1jj1sxaui8tm" path="res://assets/thud.wav" id="3_3126o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3p18"]
 
@@ -22,3 +23,6 @@ texture = ExtResource("2_ahugw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a5c43")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3126o")

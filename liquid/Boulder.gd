@@ -20,6 +20,7 @@ func _on_body_entered(body):
 		if push < pushes:
 			var impulse_direction = Vector2(-speed, 0) if body.position.x < position.x else Vector2(speed, 0)
 			apply_central_impulse(impulse_direction)
+			$AudioStreamPlayer2D2.play()
 			push += 1
 			speed *= 2
 		else:

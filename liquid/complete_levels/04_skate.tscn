@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csv7tp20dtjnk"]
+[gd_scene load_steps=21 format=3 uid="uid://csv7tp20dtjnk"]
 
 [ext_resource type="Script" path="res://liquid/levels/level.gd" id="1_8wa7p"]
 [ext_resource type="TileSet" uid="uid://d18jpnf5myu8g" path="res://liquid/tileset_v1.tres" id="2_38af7"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bdr68vqigmwy1" path="res://assets/button.png" id="7_es8tu"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="8_yl36n"]
 [ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="9_t67rl"]
+[ext_resource type="AudioStream" uid="uid://bywxn4au6wiu2" path="res://assets/button.wav" id="10_ngm5l"]
 [ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="12_720ow"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
@@ -148,6 +149,9 @@ shape = SubResource("RectangleShape2D_blesi")
 position = Vector2(-18.5, 29)
 shape = SubResource("RectangleShape2D_xjbic")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch"]
+stream = ExtResource("10_ngm5l")
+
 [node name="FloorSwitch2" type="Area2D" parent="."]
 position = Vector2(1205, 500)
 rotation = -1.5708
@@ -171,6 +175,9 @@ shape = SubResource("RectangleShape2D_blesi")
 unique_name_in_owner = true
 position = Vector2(102, -104.5)
 shape = SubResource("RectangleShape2D_xjbic")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="FloorSwitch2"]
+stream = ExtResource("10_ngm5l")
 
 [node name="Ceiling Hazard" parent="." instance=ExtResource("9_t67rl")]
 position = Vector2(792, 125)
