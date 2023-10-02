@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bdr68vqigmwy1" path="res://assets/button.png" id="7_es8tu"]
 [ext_resource type="PackedScene" uid="uid://dl6kg2akg0w0m" path="res://liquid/destroy_area.tscn" id="8_yl36n"]
 [ext_resource type="PackedScene" uid="uid://8horxcuwc5ur" path="res://liquid/ceiling_hazard.tscn" id="9_t67rl"]
-[ext_resource type="PackedScene" uid="uid://df0tq61dwlnry" path="res://liquid/lava_spawner.tscn" id="10_r1f1s"]
+[ext_resource type="PackedScene" uid="uid://dnh6dxueg7wdc" path="res://liquid/lava_map.tscn" id="12_720ow"]
 
 [sub_resource type="Gradient" id="Gradient_i8xcg"]
 offsets = PackedFloat32Array(0)
@@ -181,9 +181,7 @@ position = Vector2(600, 125)
 [node name="Player" parent="." instance=ExtResource("3_8fw3f")]
 position = Vector2(-412, 548)
 
-[node name="LavaSpawner" parent="." instance=ExtResource("10_r1f1s")]
-position = Vector2(-1, -1)
-number_to_spawn = 15
+[node name="LavaMap" parent="." instance=ExtResource("12_720ow")]
 
 [connection signal="body_entered" from="FloorSwitch" to="FloorSwitch" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="FloorSwitch2" to="FloorSwitch2" method="_on_body_entered" flags=18]
